@@ -29,7 +29,9 @@
 
 <%= form_with(model: @reserve, local: true) do |form| %>
 
-  <div class="title">
+<%= form.hidden_field :user_id, :value => current_user.id %>
+
+<div class="title">
     <div class="form-tag">タイトル</div>
     <%= form.text_field :title %>
   </div>

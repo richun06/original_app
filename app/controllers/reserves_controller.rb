@@ -10,8 +10,13 @@ class ReservesController < ApplicationController
   end
 
   def create
-    Reserve.create(reserve_parameter)
-    redirect_to reserves_path
+    # Reserve.create(reserve_parameter)
+    @reserve = Reserve.new(reserve_parameter)
+    @reserve.user_id = current_user.id
+    if @reserve.save
+      redirect_to reserves_path, notice: "登録完了！"
+      return
+    end
   end
 
   def show
@@ -40,7 +45,7 @@ class ReservesController < ApplicationController
   private
 
   def reserve_parameter
-    params.require(:reserve).permit(:title, :content, :start_time)
+    params.require(:reserve).permit(:title, :content, :start_time, :user_id)
   end
 
 end
