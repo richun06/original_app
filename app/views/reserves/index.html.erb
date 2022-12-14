@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<div class="toppage">
+<h1 class="top">カレンダー</h1>
+<br>
+
+<div class="row">
+<div class="col-md-4">
+	<div class="schedule">今後の予定一覧</div>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>タイトル</th>
+      <th>日程</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reserves.each do |reserve| %>
+      <tr>
+        <td><%= link_to reserve.title , reserve %></td>
+        <td><%= reserve.start_time.strftime("%m-%d") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<%= form_with(model: @reserve, local: true) do |form| %>
+
+  <div class="title">
+    <div class="form-tag">タイトル</div>
+    <%= form.text_field :title %>
+  </div>
+
+
+  <div class="content">
+    <div class="form-tag">内容</div>
+    <%= form.text_field :content %>
+  </div>
+
+    <div class="time">
+    <div class="form-tag">時間</div>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+<div class="submit">
+    <%= form.submit %>
+</div>
+<% end %>
+</div>
+
+<br>
+
+
+<br>
+<div class="col-md-8">
+<%= month_calendar events: @reserves do |date, reserves| %>
+  <%= date.day %>
+
+  <% reserves.each do |reserve| %>
+    <div>
+      <%= link_to reserve.title, reserve %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+</div>
+</div>

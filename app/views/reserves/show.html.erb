@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="show">
+<p>
+  <strong>タイトル</strong>
+  <%= @reserve.title %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  <%= @reserve.content %>
+</p>
+
+<p>
+  <strong>日時</strong>
+  <%= @reserve.start_time.strftime("%m-%d") %>
+</p>
+
+<%= link_to '編集', edit_reserf_path(@reserve) %>
+<%= link_to '消去',reserf_path(@reserve.id), method: :delete %>
+<%= link_to '戻る', reserves_path %>
+</div>
