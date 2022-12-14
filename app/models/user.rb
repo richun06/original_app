@@ -25,5 +25,5 @@ class User < ApplicationRecord
   end
 
   has_many :care_users
-
+  has_many :reserves
 end
