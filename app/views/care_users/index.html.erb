@@ -1,18 +1,19 @@
 <h1>利用者一覧</h1>
 
-<%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
-  <%= form.label :name, '名前' %>
-  <%= form.text_field :name %>
-  <%= form.label :sex, '性別' %>
-  <%= form.select :sex, options_for_select(CareUser.sexes), {prompt: '選択してください'} %>
-  <%= form.label :availability, '現在の利用' %>
-  <%= form.select :availability, options_for_select(CareUser.availabilities), {prompt: '選択してください'} %>
-  <%= form.label :division, '区分' %>
-  <%= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %>
+<% if current_user.admin? %>
+  <%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
+    <%= form.label :name, '名前' %>
+    <%= form.text_field :name %>
+    <%= form.label :sex, '性別' %>
+    <%= form.select :sex, options_for_select(CareUser.sexes), {prompt: '選択してください'} %>
+    <%= form.label :availability, '現在の利用' %>
+    <%= form.select :availability, options_for_select(CareUser.availabilities), {prompt: '選択してください'} %>
+    <%= form.label :division, '区分' %>
+    <%= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %>
 
-  <%= form.submit "検索"%>
+    <%= form.submit "検索"%>
+  <% end %>
 <% end %>
-
 
 <%= link_to "新規作成",new_care_user_path %>
 
@@ -39,8 +40,16 @@
         <td><%= care_user.division %></td>
         <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
         <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
-        <td><%= link_to "削除",care_user_path(care_user.id), method: :delete %></td>
-        <td><%= link_to "状態登録",new_health_path(care_user_id: care_user.id) %></td>
+        <td>
+          <% if current_user.admin? %>
+            <%= link_to "削除",care_user_path(care_user.id), method: :delete %>
+          <% end %>
+        </td>
+        <td>
+          <% if current_user.admin? %>
+            <%= link_to "状態登録",new_health_path(care_user_id: care_user.id) %>
+          <% end %>
+        </td>
         <td><%= link_to "状態一覧",healths_path(care_user_id: care_user.id) %></td>
       </tr>
     <% end %>

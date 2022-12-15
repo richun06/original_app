@@ -2,7 +2,7 @@
 
 <p>
   <strong>日付</strong>
-  <%= @health.record_in_at.strftime("%Y年 %m月 %d日") %>
+  <%= @health.record_in_at&.strftime("%Y年 %m月 %d日") %>
 </p>
 
 <p>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>計測時間</strong>
-  <%= @health.time.strftime("%H:%M") %>
+  <%= @health.time&.strftime("%H:%M") %>
 </p>
 
 <p>
@@ -50,7 +50,7 @@
 
 <p>
   <strong>入浴時間</strong>
-  <%= @health.bath_time.strftime("%H:%M") %>
+  <%= @health.bath_time&.strftime("%H:%M") %>
 </p>
 
 <p>

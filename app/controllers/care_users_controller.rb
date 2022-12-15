@@ -1,7 +1,12 @@
 class CareUsersController < ApplicationController
 
   def index
-    @care_users = CareUser.all
+    # @care_users = CareUser.all
+    if current_user.admin == true
+      @care_users = CareUser.all
+    else
+      @care_users = CareUser.where(user_id: current_user.id)
+    end
 
     if params[:search]
       @care_users = @care_users.name_search(params[:search][:name]).division_search(params[:search][:division])

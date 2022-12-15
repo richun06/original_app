@@ -12,18 +12,26 @@ class HealthsController < ApplicationController
     # @health.care_user_id = @care_user.id
     # @care_user = @health.build_care_user(care_user_params)
     # byebug
-    if @health.save
-      redirect_to healths_path(health_params), notice: "登録完了！"
-    else
-      # redirect_to new_health_path(care_user_id: care_user_id)
-      render :new
+    if current_user.admin == true
+      if @health.save
+        redirect_to healths_path(health_params), notice: "登録完了！"
+      else
+        # redirect_to new_health_path(care_user_id: care_user_id)
+        render :new
+      end
     end
   end
 
   def index
-    # byebug
-    @healths = Health.where(care_user_id: params[:care_user_id])
-    @care_user = CareUser.find(params[:care_user_id])
+    # binding.pry
+    if current_user.admin == true
+      @healths = Health.where(care_user_id: params[:care_user_id])
+      @care_user = CareUser.find(params[:care_user_id])
+    else
+      @healths = Health.where(care_user_id: current_user.care_users.ids)
+      @care_users = CareUser.find(current_user.care_users.ids)
+      @care_user = CareUser.find(params[:care_user_id])
+    end
     # @healths = care_user.healths
   end
 
