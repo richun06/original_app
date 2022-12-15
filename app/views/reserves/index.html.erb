@@ -34,23 +34,22 @@
   <div class="title">
       <div class="form-tag">タイトル</div>
       <%= form.select :title, [["面会", "面会"], ["通院", "通院"], ["外食", "外食"], ["帰宅", "帰宅"], ["外泊", "外泊"], ["その他", "その他"]], include_blank: "選択して下さい" %>
-    </div>
+  </div>
 
+  <div class="content">
+    <div class="form-tag">詳細</div>
+    <%= form.text_area :content, :placeholder => "その他を選ばれた場合は必ず入力してください"  %>
+  </div>
 
-    <div class="content">
-      <div class="form-tag">詳細</div>
-      <%= form.text_area :content, :placeholder => "その他を選ばれた場合は必ず入力してください"  %>
-    </div>
-
-      <div class="time">
-      <div class="form-tag">時間</div>
-      <%= form.datetime_select :start_time %>
-    </div>
+  <div class="time">
+    <div class="form-tag">時間</div>
+    <%= form.datetime_select :start_time %>
+  </div>
 
   <div class="submit">
       <%= form.submit %>
   </div>
-<% end %>
+  <% end %>
 </div>
 
 <br>
