@@ -10,6 +10,8 @@
   <%= link_to "編集", edit_user_registration_path %> <!-- ログアウトをする -->
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
   <%= link_to "カレンダー", reserves_path %>
+  <%= link_to "家族登録", care_users_path(@care_users) %>
+  <%= link_to "カレンダー", reserves_path %>
 <% else %>
   <!-- ユーザーがログインしていなかった時の処理 -->
   <h2> 現在ログインしていません </h2>
