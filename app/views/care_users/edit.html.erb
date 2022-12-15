@@ -1,4 +1,9 @@
-<h1>利用者　編集画面</h1>
+<% if current_user.admin? %>
+  <h1>利用者　編集画面</h1>
+<% else %>
+  <h1>ご家族情報編集</h1>
+<% end %>
+
 <%= form_with(model: @care_user, local:true) do |form| %>
   <% if @care_user.errors.any? %>
   <div id="error_explanation">
