@@ -1,8 +1,13 @@
 class ReservesController < ApplicationController
 
   def index
-    @reserves = Reserve.all
-    @reserve = Reserve.new
+    if current_user.admin == true
+      @reserves = Reserve.all
+      @reserve = Reserve.new
+    else
+      @reserves = Reserve.where(user_id: current_user.id)
+      @reserve = Reserve.new
+    end
   end
 
   def new
