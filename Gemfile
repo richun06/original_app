@@ -67,3 +67,5 @@ gem 'jquery-rails'
 gem 'jp_prefecture'
 
 gem 'simple_calendar'
+
+gem 'cancancan'
