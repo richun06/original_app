@@ -2,7 +2,7 @@
 
 <%= link_to "戻る",care_users_path %>
 <% if current_user.admin? %>
-  <%= link_to "新規作成",new_health_path(care_user_id: @care_users) %>
+  <%= link_to "新規作成",new_health_path(care_user_id: @care_user.id) %>
 <% end %>
 
 <%# @care_users.each do |care_user| %>
