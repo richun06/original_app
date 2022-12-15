@@ -1,0 +1,54 @@
+<%= form_with(model: @care_user, local:true) do |form| %>
+  <% if @care_user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @care_user.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @care_user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div>
+    <%= form.label :名前 %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :生年月日 %>
+    <%= form.date_select :birthday %>
+  </div>
+
+  <div>
+    <%= form.label :年齢 %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div>
+    <%= form.label :性別 %>
+    <%= form.label :男 %>
+    <%= form.radio_button :sex, :男 %>
+    <%= form.label :女  %>
+    <%= form.radio_button :sex, :女 %>
+  </div>
+
+  <% if current_user.admin? %>
+    <div>
+      <%= form.label :現在の利用 %>
+      <%= form.label :あり %>
+      <%= form.radio_button :availability, :あり %>
+      <%= form.label :なし  %>
+      <%= form.radio_button :availability, :なし %>
+    </div>
+
+    <div>
+      <%= form.label :区分 %>
+      <%= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %>
+    </div>
+  <% end %>
+
+  <%= form.submit "登録" %>
+  <%= link_to "戻る",care_users_path %>
+
+<% end %>

@@ -1,0 +1,112 @@
+<h1><%= @care_user.name %>様の状態登録</h1>
+<%= form_with(model: @health, local:true) do |form| %>
+  <% if @health.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @health.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @health.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= form.hidden_field :care_user_id, :value => @care_user.id %>
+
+  <div>
+    <%= form.label :責任者 %>
+    <%= form.text_field :responsibility %>
+  </div>
+
+  <div>
+    <%= form.label :日付 %>
+    <%= form.date_field :record_in_at %>
+  </div>
+
+  <div>
+    <%= form.label :計測時間 %>
+    <%= form.time_field :time %>
+  </div>
+
+  <div>
+    <%= form.label :体温 %>
+    <%= form.number_field :body_temperature, step: '0.1' %>℃
+  </div>
+
+  <div>
+    <%= form.label :血圧 %>
+    <%= form.number_field :blood_pressure_up %>/<%= form.number_field :blood_pressure_down %>
+  </div>
+
+  <div>
+    <%= form.label :脈拍 %>
+    <%= form.number_field :pulse %>回/分
+  </div>
+
+  <div>
+    <%= form.label :食事量 %>
+    朝：<%= form.select :breakfast, [['ー', 0], ['全量', 1], ['半量', 2], ['1/3', 3], ['2/3', 4], ['1/4', 5], ['欠食', 6], ['その他', 7]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    昼：<%= form.select :lunch, [['ー', 0], ['全量', 1], ['半量', 2], ['1/3', 3], ['2/3', 4], ['1/4', 5], ['欠食', 6], ['その他', 7]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    おやつ：<%= form.select :snack, [['ー', 0], ['全量', 1], ['半量', 2], ['1/3', 3], ['2/3', 4], ['1/4', 5], ['欠食', 6], ['その他', 7]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    夕：<%= form.select :dinner, [['ー', 0], ['全量', 1], ['半量', 2], ['1/3', 3], ['2/3', 4], ['1/4', 5], ['欠食', 6], ['その他', 7]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    眠前：<%= form.select :before_sleep, [['ー', 0], ['全量', 1], ['半量', 2], ['1/3', 3], ['2/3', 4], ['1/4', 5], ['欠食', 6], ['その他', 7]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+  </div>
+
+  <div>
+    <%= form.label :服薬 %>
+    朝：<%= form.select :morning_medicine, [['ー', 0], ['◯', 1], ['中止', 2], ['その他', 3]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    昼：<%= form.select :daytime_medicine, [['ー', 0], ['◯', 1], ['中止', 2], ['その他', 3]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    おやつ：<%= form.select :snack_medicine, [['ー', 0], ['◯', 1], ['中止', 2], ['その他', 3]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    夕：<%= form.select :evening_medicine, [['ー', 0], ['◯', 1], ['中止', 2], ['その他', 3]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+    眠前：<%= form.select :sleep_medicine, [['ー', 0], ['◯', 1], ['中止', 2], ['その他', 3]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+  </div>
+
+  <div>
+    <%= form.label :入浴時間 %>
+    <%= form.time_field :bath_time %>
+  </div>
+
+  <div>
+    <%= form.label :入浴種類 %>
+    <%= form.select :bath_division, [['ー', 0], ['全身浴', 1], ['シャワー浴', 2], ['足浴', 3], ['機械浴', 4], ['その他', 5]], { include_blank: true, prompt: '選択してください' }, { id: "health_id" } %>
+  </div>
+
+  <div>
+    <%= form.label :介助者 %>
+    <%= form.text_field :caregiver %>
+  </div>
+
+  <div>
+    <%= form.label :身長 %>
+    <%= form.number_field :height, step: '0.1' %>cm
+  </div>
+
+  <div>
+    <%= form.label :体重 %>
+    <%= form.number_field :body_weight, step: '0.1' %>kg
+  </div>
+
+  <div>
+    <%= form.label :日中の様子 %>
+    <%= form.text_area :daytime %>
+    <%= form.label :スタッフ名 %>
+    <%= form.text_field :daytime_staff %>
+  </div>
+
+  <div>
+    <%= form.label :夜間の様子 %>
+    <%= form.text_area :night %>
+    <%= form.label :スタッフ名 %>
+    <%= form.text_field :night_staff %>
+  </div>
+
+  <div>
+    <%= form.label :連絡事項 %>
+    <%= form.text_area :contact %>
+    <%= form.label :スタッフ名 %>
+    <%= form.text_field :contact_staff %>
+  </div>
+
+  <%= form.submit "登録" %>
+
+<% end %>

@@ -1,4 +1,8 @@
-<h1>利用者一覧</h1>
+<% if current_user.admin? %>
+  <h1>利用者一覧</h1>
+<% else %>
+  <h1>ご家族一覧</h1>
+<% end %>
 
 <% if current_user.admin? %>
   <%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
@@ -10,12 +14,11 @@
     <%= form.select :availability, options_for_select(CareUser.availabilities), {prompt: '選択してください'} %>
     <%= form.label :division, '区分' %>
     <%= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %>
-
     <%= form.submit "検索"%>
   <% end %>
-<% end %>
 
-<%= link_to "新規作成",new_care_user_path %>
+  <%= link_to "新規作成",new_care_user_path %>
+<% end %>
 
 <table>
   <thead>
@@ -24,8 +27,10 @@
       <th>生年月日</th>
       <th>年齢</th>
       <th>性別</th>
-      <th>現在の利用</th>
-      <th>区分</th>
+      <% if current_user.admin? %>
+        <th>現在の利用</th>
+        <th>区分</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -36,8 +41,10 @@
         <td><%= care_user.birthday.strftime("%Y年 %m月 %d日") %></td>
         <td><%= care_user.age %>歳</td>
         <td><%= care_user.sex %></td>
-        <td><%= care_user.availability %></td>
-        <td><%= care_user.division %></td>
+        <% if current_user.admin? %>
+          <td><%= care_user.availability %></td>
+          <td><%= care_user.division %></td>
+        <% end %>
         <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
         <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
         <td>
@@ -55,3 +62,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "戻る",user_path(current_user.id) %>

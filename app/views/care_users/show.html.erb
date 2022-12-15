@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>生年月日</strong>
-  <%= @care_user.birthday %>
+  <%= @care_user.birthday.strftime("%Y年 %m月 %d日") %>
 </p>
 <p>
   <strong>年齢</strong>
@@ -16,14 +16,16 @@
   <strong>性別</strong>
   <%= @care_user.sex %>
 </p>
-<p>
-  <strong>現在の利用</strong>
-  <%= @care_user.availability %>
-</p>
-<p>
-  <strong>区分</strong>
-  <%= @care_user.division %>
-</p>
+<% if current_user.admin? %>
+  <p>
+    <strong>現在の利用</strong>
+    <%= @care_user.availability %>
+  </p>
+  <p>
+    <strong>区分</strong>
+    <%= @care_user.division %>
+  </p>
+<% end %>
 
 <%= link_to "戻る",care_users_path %>
 <%= link_to "編集",edit_care_user_path(@care_user.id) %>
