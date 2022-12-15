@@ -13,4 +13,6 @@ class Health < ApplicationRecord
   enum sleep_medicine: { 'ー':0, '◯':1, '中止':2, 'その他':3}, _prefix: true
 
   enum bath_division: { 'ー':0, '全身浴':1, 'シャワー浴':2, '足浴':3, '機械浴':4, 'その他':5}, _prefix: true
+
+  validates :record_in_at, presence: true
 end
