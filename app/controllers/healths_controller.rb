@@ -9,6 +9,7 @@ class HealthsController < ApplicationController
 
   def create
     @health = Health.new(health_params)
+    # @health = @care_user.health.build(params[:id])
     # @health.care_user_id = @care_user.id
     # @care_user = @health.build_care_user(care_user_params)
     # byebug
