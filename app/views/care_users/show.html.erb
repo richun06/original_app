@@ -27,5 +27,15 @@
   </p>
 <% end %>
 
+<p>
+  <strong>プロフィール画像:</strong>
+  <% if @care_user.image? %>
+    <%= image_tag @care_user.image.url, size: "150x150" %>
+  <% else %>
+    <%= image_tag 'user.icon.png', size: "150x130" %>
+  <% end %>
+</p>
+
+
 <%= link_to "戻る",care_users_path %>
 <%= link_to "編集",edit_care_user_path(@care_user.id) %>
