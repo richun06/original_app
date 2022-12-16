@@ -20,7 +20,7 @@
 
   <div>
     <%= form.label :日付 %>
-    <%= form.date_field :record_in_at %>
+    <%= form.date_field :record_in_at, value: Time.now.strftime("%Y-%m-%d") %>
   </div>
 
   <div>
