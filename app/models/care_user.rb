@@ -10,4 +10,6 @@ class CareUser < ApplicationRecord
 
   has_many :healths
   belongs_to :user, optional: true
+
+  mount_uploader :image, ImageUploader
 end
