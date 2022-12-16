@@ -8,8 +8,8 @@ class CareUser < ApplicationRecord
   scope :availability_search, -> (availability) { where(availability: availability) if availability.present? }
   scope :division_search, -> (division) { where(division: division) if division.present? }
 
-  has_many :healths
-  belongs_to :user, optional: true
+  has_many :healths, dependent: :destroy
+  belongs_to :user
 
   mount_uploader :image, ImageUploader
 end
