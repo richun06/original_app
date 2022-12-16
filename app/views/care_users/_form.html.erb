@@ -56,6 +56,12 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
   <%= form.submit "登録" %>
   <%= link_to "戻る",care_users_path %>
 

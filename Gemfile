@@ -71,3 +71,7 @@ gem 'simple_calendar'
 gem 'cancancan'
 
 gem 'dotenv-rails'
+
+gem 'carrierwave'
+gem 'mini_magick'
+
