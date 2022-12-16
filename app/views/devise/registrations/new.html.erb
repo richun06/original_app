@@ -56,11 +56,6 @@
     <%= f.text_field :phone_number, autocomplete: 'phone_number' %>
   </div>
 
-  <div class="field">
-    <%= f.label :care_user_ids, "" %><br />
-    <%= f.collection_select :care_user_ids, CareUser.where(user_id: nil), :id, :name  %>
-  </div>
-
   <div class="actions">
     <%= f.submit t('.sign_up') %>
   </div>
