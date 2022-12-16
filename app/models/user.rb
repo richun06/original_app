@@ -27,4 +27,10 @@ class User < ApplicationRecord
   # has_many :care_users. optional :true
   has_many :care_users
   has_many :reserves
+
+  VALID_PHONE_NUMBER_REGEX = /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/
+  validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
+
+  VALID_POST_CODE_REGEX = /\A\d{3}[-]?\d{4}\z/
+  validates :postcode, format: { with: VALID_POST_CODE_REGEX }
 end
