@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_16_171859) do
+ActiveRecord::Schema.define(version: 2022_12_16_174558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,18 +37,18 @@ ActiveRecord::Schema.define(version: 2022_12_16_171859) do
     t.integer "blood_pressure_up"
     t.integer "blood_pressure_down"
     t.integer "pulse"
-    t.integer "breakfast"
-    t.integer "lunch"
-    t.integer "snack"
-    t.integer "dinner"
-    t.integer "before_sleep"
-    t.integer "morning_medicine"
-    t.integer "daytime_medicine"
-    t.integer "snack_medicine"
-    t.integer "evening_medicine"
-    t.integer "sleep_medicine"
+    t.string "breakfast"
+    t.string "lunch"
+    t.string "snack"
+    t.string "dinner"
+    t.string "before_sleep"
+    t.string "morning_medicine"
+    t.string "daytime_medicine"
+    t.string "snack_medicine"
+    t.string "evening_medicine"
+    t.string "sleep_medicine"
     t.time "bath_time"
-    t.integer "bath_division"
+    t.string "bath_division"
     t.string "caregiver"
     t.float "height"
     t.float "body_weight"
