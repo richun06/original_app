@@ -10,6 +10,8 @@
   </div>
   <% end %>
 
+  <%= form.hidden_field :user_id, :value => @care_user.user_id %>
+
   <div>
     <%= form.label :名前 %>
     <%= form.text_field :name %>
