@@ -13,7 +13,8 @@
     <%= form.label :availability, '現在の利用' %>
     <%= form.select :availability, options_for_select(CareUser.availabilities), {prompt: '選択してください'} %>
     <%= form.label :division, '区分' %>
-    <%= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %>
+    <!-- <%#= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %> -->
+    <%= form.select :division, [["L宿泊", "L宿泊"], ["S宿泊", "S宿泊"], ["通所", "通所"], ["訪問", "訪問"], ["その他", "その他"]], { include_blank: true, prompt: '選択してください' } %>
     <%= form.submit "検索"%>
   <% end %>
 
