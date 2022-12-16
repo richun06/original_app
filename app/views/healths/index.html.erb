@@ -31,7 +31,7 @@
           <td>
             <% if current_user.admin? %>
               <%= link_to "編集",edit_health_path(health.id) %>
-              <%= link_to "削除",health_path(health.id), method: :delete %>
+              <%= link_to "削除",health_path(health.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
             <% end %>
           </td>
         </tr>
