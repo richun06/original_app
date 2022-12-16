@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_16_154541) do
+ActiveRecord::Schema.define(version: 2022_12_16_171859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_12_16_154541) do
     t.integer "sex"
     t.text "image"
     t.integer "availability"
-    t.integer "division"
+    t.string "division"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
