@@ -5,12 +5,12 @@
 
   <div class="field">
     <%= f.label :name %> <br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => "例) 山田 太郎" %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "例) taro@sample.com" %>
   </div>
 
   <div class="field">
@@ -18,17 +18,18 @@
     <% if @minimum_password_length %>
     <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", :placeholder => "半角英数字6文字以上" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "パスワードを再入力" %>
   </div>
 
   <div class="field">
     <%= f.label :postcode, "郵便番号" %><br />
-    <%= f.text_field :postcode, autocomplete: 'postcode' %>
+    <%= f.text_field :postcode, autocomplete: 'postcode', :placeholder => "例) 1234567" %>
+    <!-- ハイフンは入れずに入力してください -->
   </div>
 
   <div class="field">
@@ -38,22 +39,22 @@
 
   <div class="field">
     <%= f.label :address_city, "市区町村" %><br />
-    <%= f.text_field :address_city, autocomplete: 'address_city' %>
+    <%= f.text_field :address_city, autocomplete: 'address_city', :placeholder => "例) 市区町村を入力してください" %>
   </div>
 
   <div class="field">
     <%= f.label :address_street, "番地" %><br />
-    <%= f.text_field :address_street, autocomplete: 'address_street' %>
+    <%= f.text_field :address_street, autocomplete: 'address_street', :placeholder => "例) 番地を入力してください" %>
   </div>
 
   <div class="field">
     <%= f.label :address_building, "建物名" %><br />
-    <%= f.text_field :address_building, autocomplete: 'address_building' %>
+    <%= f.text_field :address_building, autocomplete: 'address_building', :placeholder => "例) 建物名を入力してください" %>
   </div>
 
   <div class="field">
     <%= f.label :phone_number, "電話番号" %><br />
-    <%= f.telephone_field :phone_number, autocomplete: 'phone_number' %>
+    <%= f.telephone_field :phone_number, autocomplete: 'phone_number', :placeholder => "例) 090-1234-5678" %>
   </div>
 
   <div class="actions">
