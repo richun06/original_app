@@ -7,6 +7,7 @@ class ReservesController < ApplicationController
     else
       @reserves = Reserve.where(user_id: current_user.id)
       @reserve = Reserve.new
+      # @care_users = CareUser.find(current_user.care_users.ids)
     end
   end
 
@@ -26,6 +27,8 @@ class ReservesController < ApplicationController
 
   def show
     @reserve = Reserve.find(params[:id])
+    # @care_users = CareUser.find(current_user.care_users.ids)
+    # @care_user = CareUser.find(params[:care_user_id])
   end
 
   def destroy
