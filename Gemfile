@@ -88,3 +88,5 @@ gem 'mini_magick'
 gem 'fog-aws'
 
 gem 'dotenv-rails'
+
+gem 'devise-i18n'
