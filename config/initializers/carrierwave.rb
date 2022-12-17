@@ -21,7 +21,7 @@ CarrierWave.configure do |config|
       config.fog_directory = 'portfolio-portfolio-production'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/portfolio-portfolio-production'
     when 'development'
-      config.fog_directory = 'portfolio-portfolio-developmentI'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/portfolio-portfolio-developmentI'
+      config.fog_directory = 'portfolio-portfolio-development'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/portfolio-portfolio-development'
   end
 end
