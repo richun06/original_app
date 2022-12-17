@@ -1,14 +1,11 @@
-<h1>ユーザ詳細画面</h1>
-
-<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <!-- ユーザーがログインしていた時の処理 -->
+<% if user_signed_in? %>
   <h2> 現在 <%= current_user.name %> さんがログインしています </h2>
   <h4> メールアドレス： <%= current_user.email %> </h4>
   <h4> 郵便番号： <%= current_user.postcode %> </h4>
   <h4> 住所： <%= current_user.prefecture_name %><%= current_user.address_city %><%= current_user.address_street %> <%= current_user.address_building %> </h4>
   <h4> 電話番号： <%= current_user.phone_number %> </h4>
-  <%= link_to "編集", edit_user_registration_path %> <!-- ログアウトをする -->
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
+  <%= link_to "編集", edit_user_registration_path %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
   <% if current_user.owner_id != nil %>
     <%= link_to "利用者一覧", care_users_path(@care_users) %>
@@ -30,6 +27,5 @@
   <% end %>
 
 <% else %>
-  <!-- ユーザーがログインしていなかった時の処理 -->
   <h2> 現在ログインしていません </h2>
 <% end %>
