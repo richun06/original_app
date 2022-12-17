@@ -20,6 +20,7 @@ class CareUsersController < ApplicationController
 
   def create
     @care_user = CareUser.new(care_user_params)
+    # binding.pry
     if @care_user.save
       redirect_to care_users_path, notice: "利用者登録完了！"
     else
