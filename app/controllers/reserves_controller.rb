@@ -1,12 +1,13 @@
 class ReservesController < ApplicationController
 
   def index
-    if current_user.admin == true
+    if current_user.owner_id != nil
       @reserves = Reserve.all
       @reserve = Reserve.new
     else
       @reserves = Reserve.where(user_id: current_user.id)
       @reserve = Reserve.new
+      # @users = User.find(:owner_id != nil)
       # @care_users = CareUser.find(current_user.care_users.ids)
     end
   end

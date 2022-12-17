@@ -1,10 +1,10 @@
-<% if current_user.admin? %>
+<% if current_user.owner_id != nil %>
   <h1>利用者一覧</h1>
 <% else %>
   <h1>ご家族一覧</h1>
 <% end %>
 
-<% if current_user.admin? %>
+<% if current_user.owner_id != nil %>
   <%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
     <%= form.label :name, '名前' %>
     <%= form.text_field :name %>
@@ -28,7 +28,7 @@
       <th>生年月日</th>
       <th>年齢</th>
       <th>性別</th>
-      <% if current_user.admin? %>
+      <% if current_user.owner_id != nil %>
         <th>現在の利用</th>
         <th>区分</th>
       <% end %>
@@ -42,19 +42,19 @@
         <td><%= care_user.birthday.strftime("%Y年 %m月 %d日") %></td>
         <td><%= care_user.age %>歳</td>
         <td><%= care_user.sex %></td>
-        <% if current_user.admin? %>
+        <% if current_user.owner_id != nil %>
           <td><%= care_user.availability %></td>
           <td><%= care_user.division %></td>
         <% end %>
         <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
         <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
         <td>
-          <% if current_user.admin? %>
+          <% if current_user.owner_id != nil %>
             <%= link_to "削除",care_user_path(care_user.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
           <% end %>
         </td>
         <td>
-          <% if current_user.admin? %>
+          <% if current_user.owner_id != nil %>
             <%= link_to "状態登録",new_health_path(care_user_id: care_user.id) %>
           <% end %>
         </td>

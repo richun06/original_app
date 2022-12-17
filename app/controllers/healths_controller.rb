@@ -13,7 +13,7 @@ class HealthsController < ApplicationController
     # @health.care_user_id = @care_user.id
     # @care_user = @health.build_care_user(care_user_params)
     # byebug
-    if current_user.admin == true
+    if current_user.owner_id != nil
       if @health.save
         redirect_to healths_path(health_params), notice: "登録完了！"
       else
@@ -25,7 +25,7 @@ class HealthsController < ApplicationController
 
   def index
     # binding.pry
-    if current_user.admin == true
+    if current_user.owner_id != nil
       @healths = Health.where(care_user_id: params[:care_user_id])
       @care_user = CareUser.find(params[:care_user_id])
     else

@@ -16,7 +16,7 @@
   <strong>性別</strong>
   <%= @care_user.sex %>
 </p>
-<% if current_user.admin? %>
+<% if current_user.owner_id != nil %>
   <p>
     <strong>現在の利用</strong>
     <%= @care_user.availability %>

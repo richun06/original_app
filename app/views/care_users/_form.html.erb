@@ -10,7 +10,7 @@
   </div>
   <% end %>
 
-  <% if current_user.admin? %>
+  <% if current_user.owner_id != nil %>
     <%= form.hidden_field :user_id, :value => @care_user.user_id %>
   <% else %>
     <%= form.hidden_field :user_id, :value => current_user.id %>
@@ -47,7 +47,7 @@
     <%= form.radio_button :sex, :女 %>
   </div>
 
-  <% if current_user.admin? %>
+  <% if current_user.owner_id != nil %>
     <div>
       <%= form.label :現在の利用 %>
       <%= form.label :あり %>

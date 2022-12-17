@@ -92,7 +92,7 @@
 </p>
 
 <%= link_to "戻る",healths_path(care_user_id: @health.care_user.id) %>
-<% if current_user.admin? %>
+<% if current_user.owner_id != nil %>
   <%= link_to "編集",edit_health_path(@health.id) %>
   <%= link_to "削除",health_path(@health.id), method: :delete %>
 <% end %>

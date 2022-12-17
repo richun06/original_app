@@ -2,7 +2,7 @@ class CareUsersController < ApplicationController
 
   def index
     # @care_users = CareUser.all
-    if current_user.admin == true
+    if current_user.owner_id != nil
       @care_users = CareUser.all
     else
       @care_users = CareUser.where(user_id: current_user.id)

@@ -1,5 +1,5 @@
-<% if current_user.admin? %>
-<h1>利用者登録</h1>
+<% if current_user.owner_id != nil %>
+  <h1>利用者登録</h1>
 <% else %>
   <h1>ご家族情報登録</h1>
 <% end %>

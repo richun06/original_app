@@ -9,13 +9,22 @@
   <h4> 電話番号： <%= current_user.phone_number %> </h4>
   <%= link_to "編集", edit_user_registration_path %> <!-- ログアウトをする -->
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
-  <% if current_user.admin? %>
+
+  <% if current_user.owner_id != nil %>
     <%= link_to "利用者一覧", care_users_path(@care_users) %>
   <% else %>
     <%= link_to "家族情報一覧", care_users_path(@care_users) %>
     <%= link_to "家族登録", new_care_user_path %>
   <% end %>
+
   <%= link_to "カレンダー", reserves_path %>
+
+  <% if current_user.owner_id != nil %>
+    <h4>施設側</h4>
+  <% else %>
+    <h4>家族側</h4>
+  <% end %>
+
 <% else %>
   <!-- ユーザーがログインしていなかった時の処理 -->
   <h2> 現在ログインしていません </h2>
