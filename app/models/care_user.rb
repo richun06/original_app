@@ -12,4 +12,8 @@ class CareUser < ApplicationRecord
   belongs_to :user
 
   mount_uploader :image, ImageUploader
+
+  validates :name, presence: true
+  validates :birthday, presence: true
+  validates :sex, presence: true
 end

@@ -35,9 +35,13 @@ class User < ApplicationRecord
   has_many :care_users
   has_many :reserves
 
-  # VALID_PHONE_NUMBER_REGEX = /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/
-  # validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
+  VALID_PHONE_NUMBER_REGEX = /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/
+  validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }
 
-  # VALID_POST_CODE_REGEX = /\A\d{3}[-]?\d{4}\z/
-  # validates :postcode, format: { with: VALID_POST_CODE_REGEX }
+  VALID_POST_CODE_REGEX = /\A\d{3}[-]?\d{4}\z/
+  validates :postcode, format: { with: VALID_POST_CODE_REGEX }
+
+  validates :name, presence: true
+  validates :email, presence: true, length: { maximum: 255 }, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :password, length: { minimum: 6 }
 end
