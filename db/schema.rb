@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_18_020928) do
+ActiveRecord::Schema.define(version: 2022_12_18_045000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_12_18_020928) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "care_user_id"
+    t.text "transfer"
     t.index ["care_user_id"], name: "index_healths_on_care_user_id"
   end
 
@@ -104,7 +105,6 @@ ActiveRecord::Schema.define(version: 2022_12_18_020928) do
   end
 
   add_foreign_key "care_users", "users"
-  add_foreign_key "comments", "healths"
   add_foreign_key "healths", "care_users"
   add_foreign_key "reserves", "users"
 end
