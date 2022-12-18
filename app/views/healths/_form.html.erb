@@ -101,7 +101,12 @@
   </div>
 
   <div>
-    <%= form.label :連絡事項 %>
+    <%= form.label :申し送り %>
+    <%= form.text_area :transfer %>
+  </div>
+
+  <div>
+    <%= form.label :ご家族へお知らせ %>
     <%= form.text_area :contact %>
     <%= form.label :スタッフ名 %>
     <%= form.text_field :contact_staff %>

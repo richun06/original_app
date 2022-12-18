@@ -85,6 +85,13 @@
   <strong>スタッフ名</strong><%= @health.night_staff %>
 </p>
 
+<% if current_user.owner_id != nil %>
+  <p>
+    <strong>申し送り</strong>
+    <%= @health.transfer %>
+  </p>
+<% end %>
+
 <p>
   <strong>連絡事項</strong>
   <%= @health.contact %>
