@@ -28,16 +28,20 @@ class HealthsController < ApplicationController
     if current_user.owner_id != nil
       @healths = Health.where(care_user_id: params[:care_user_id])
       @care_user = CareUser.find(params[:care_user_id])
+      # @comments = @health.comments
     else
       @healths = Health.where(care_user_id: current_user.care_users.ids)
       @care_users = CareUser.find(current_user.care_users.ids)
       @care_user = CareUser.find(params[:care_user_id])
+      # @comments = Comment.find(params[:comment_id])
     end
     # @healths = care_user.healths
   end
 
   def show
     @health = Health.find(params[:id])
+    # @comments = @health.comments
+    # @comment = @health.comments.build
   end
 
   def edit

@@ -97,6 +97,21 @@
   <%= link_to "削除",health_path(@health.id), method: :delete %>
 <% end %>
 
+<!-- <%# if current_user.owner_id != nil %>
+  <p>家族からのコメント</p>
+<%# else %>
+  <p>コメント</p>
+<%# end %>
+
+  <div id="comments_area">
+    <%#= render partial: 'comments/index', locals: { comments: @comments, health: @health } %>
+  </div>
+
+  <%#= render partial: 'comments/form', locales: { comment: @comment, health: @health } %>
+
+</div> -->
+
+
 
 
 

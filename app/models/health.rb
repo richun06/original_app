@@ -1,5 +1,6 @@
 class Health < ApplicationRecord
   belongs_to :care_user
+  # has_many :comments, dependent: :destroy
 
   # enum breakfast: { 'ー':0, '全量':1, '半量':2, '1/3':3, '2/3':4, '1/4':5, '欠食':6, 'その他':7}, _prefix: true
   # enum lunch: { 'ー':0, '全量':1, '半量':2, '1/3':3, '2/3':4, '1/4':5, '欠食':6, 'その他':7}, _prefix: true

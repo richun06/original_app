@@ -15,6 +15,11 @@
         <th>バイタル</th>
         <th>最終記録日時</th>
         <th>コメント</th>
+        <!-- <%# if current_user.owner_id != nil %>
+          <th>家族からのコメント</th>
+        <%# else %>
+          <th>連絡時事項</th>
+        <%# end %> -->
         <th>責任者</th>
       </tr>
     </thead>
@@ -26,6 +31,15 @@
           <td><%= health.blood_pressure_up %>/<%= health.blood_pressure_down %></td>
           <td><%= health.updated_at.strftime("%H:%M") %></td>
           <td></td>
+          <!-- <%# if current_user.owner_id != nil %>
+            <%# if health.comments != nil %>
+              <td>あり</td>
+            <%# else %>
+              <td>なし</td>
+            <%# end %>
+          <%# else %>
+            <td><%#= health.contact %></td>
+          <%# end %> -->
           <td><%= health.responsibility %></td>
           <td><%= link_to "詳細",health_path(health.id) %></td>
           <td>
