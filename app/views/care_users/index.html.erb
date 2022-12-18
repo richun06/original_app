@@ -1,67 +1,75 @@
-<% if current_user.owner_id != nil %>
-  <h1>利用者一覧</h1>
-<% else %>
-  <h1>ご家族一覧</h1>
-<% end %>
-
-<% if current_user.owner_id != nil %>
-  <%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
-    <%= form.label :name, '名前' %>
-    <%= form.text_field :name %>
-    <%= form.label :sex, '性別' %>
-    <%= form.select :sex, options_for_select(CareUser.sexes), {prompt: '選択してください'} %>
-    <%= form.label :availability, '現在の利用' %>
-    <%= form.select :availability, options_for_select(CareUser.availabilities), {prompt: '選択してください'} %>
-    <%= form.label :division, '区分' %>
-    <!-- <%#= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %> -->
-    <%= form.select :division, [["L宿泊", "L宿泊"], ["S宿泊", "S宿泊"], ["通所", "通所"], ["訪問", "訪問"], ["その他", "その他"]], { prompt: '選択してください' } %>
-    <%= form.submit "検索"%>
+<div class="container">
+  <% if current_user.owner_id != nil %>
+    <h1>利用者一覧</h1>
+  <% else %>
+    <h1>ご家族一覧</h1>
   <% end %>
 
-  <%= link_to "新規作成",new_care_user_path %>
-<% end %>
+  <div class="back">
+    <%= link_to "戻る",user_path(current_user.id) %>
+  </div><br>
 
-<table>
-  <thead>
-    <tr>
-      <th>名前</th>
-      <th>生年月日</th>
-      <th>年齢</th>
-      <th>性別</th>
-      <% if current_user.owner_id != nil %>
-        <th>現在の利用</th>
-        <th>区分</th>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @care_users.each do |care_user| %>
-      <tr>
-        <td><%= care_user.name %></td>
-        <td><%= care_user.birthday.strftime("%Y年 %m月 %d日") %></td>
-        <td><%= care_user.age %>歳</td>
-        <td><%= care_user.sex %></td>
-        <% if current_user.owner_id != nil %>
-          <td><%= care_user.availability %></td>
-          <td><%= care_user.division %></td>
-        <% end %>
-        <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
-        <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
-        <td>
-          <% if current_user.owner_id != nil %>
-            <%= link_to "削除",care_user_path(care_user.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
-          <% end %>
-        </td>
-        <td>
-          <% if current_user.owner_id != nil %>
-            <%= link_to "状態登録",new_health_path(care_user_id: care_user.id) %>
-          <% end %>
-        </td>
-        <td><%= link_to "状態一覧",healths_path(care_user_id: care_user.id) %></td>
-      </tr>
+  <% if current_user.owner_id != nil %>
+    <%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
+      <%= form.label :name, '名前' %>
+      <%= form.text_field :name %>
+      <%= form.label :sex, '性別' %>
+      <%= form.select :sex, options_for_select(CareUser.sexes), {prompt: '選択してください'} %>
+      <%= form.label :availability, '現在の利用' %>
+      <%= form.select :availability, options_for_select(CareUser.availabilities), {prompt: '選択してください'} %>
+      <%= form.label :division, '区分' %>
+      <!-- <%#= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %> -->
+      <%= form.select :division, [["L宿泊", "L宿泊"], ["S宿泊", "S宿泊"], ["通所", "通所"], ["訪問", "訪問"], ["その他", "その他"]], { prompt: '選択してください' } %>
+      <%= form.submit "検索"%>
     <% end %>
-  </tbody>
-</table>
 
-<%= link_to "戻る",user_path(current_user.id) %>
+    <%= link_to "新規作成",new_care_user_path %>
+  <% end %>
+
+  <div class="category">
+    <table class="table p-2 flex-shrink-1 bd-highlight">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>生年月日</th>
+          <th>年齢</th>
+          <th>性別</th>
+          <% if current_user.owner_id != nil %>
+            <th>現在の利用</th>
+            <th>区分</th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @care_users.each do |care_user| %>
+          <tr>
+            <td><%= care_user.name %></td>
+            <td><%= care_user.birthday.strftime("%Y年 %m月 %d日") %></td>
+            <td><%= care_user.age %>歳</td>
+            <td><%= care_user.sex %></td>
+            <% if current_user.owner_id != nil %>
+              <td><%= care_user.availability %></td>
+              <td><%= care_user.division %></td>
+            <% end %>
+            <td>
+              <% if current_user.owner_id != nil %>
+                <%= link_to "削除",care_user_path(care_user.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+              <% end %>
+            </td>
+            <td>
+              <% if current_user.owner_id != nil %>
+                <%= link_to "状態登録",new_health_path(care_user_id: care_user.id) %>
+              <% end %>
+            </td>
+            <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
+            <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
+            <td><%= link_to "状態一覧",healths_path(care_user_id: care_user.id) %></td>
+            
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

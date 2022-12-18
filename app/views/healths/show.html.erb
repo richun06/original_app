@@ -1,108 +1,36 @@
-<h1>状態詳細画面</h1>
+<div class="container">
+  <h1>状態詳細画面</h1>
 
-<p>
-  <strong>日付</strong>
-  <%= @health.record_in_at&.strftime("%Y年 %m月 %d日") %>
-</p>
+  <div class="form_c">
+    <table class="table">
+      <tr><th>日付</th><td><%= @health.record_in_at&.strftime("%Y年 %m月 %d日") %></td></tr>
+      <tr><th>責任者</th><td><%= @health.responsibility %></td></tr>
+      <tr><th>計測時間</th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
+      <tr><th>体温</th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
+      <tr><th>血圧</th><td><%= @health.blood_pressure_up %>/<%= @health.blood_pressure_down %></td></tr>
+      <tr><th>脈拍</th><td><%= @health.pulse %>回/分</td></tr>
+      <tr><th>食事量</th><td>朝：<%= @health.breakfast %>　昼：<%= @health.lunch %>　おやつ：<%= @health.snack %>　夕：<%= @health.dinner %>　眠前：<%= @health.before_sleep %></td></tr>
+      <tr><th>服薬</th><td>朝：<%= @health.morning_medicine %>　昼：<%= @health.daytime_medicine %>　おやつ：<%= @health.snack_medicine %>　夕：<%= @health.evening_medicine %>　眠前：<%= @health.sleep_medicine %></td></tr>
+      <tr><th>入浴時間</th><td><%= @health.bath_time&.strftime("%H:%M") %></td></tr>
+      <tr><th>入浴種類</th><td><%= @health.bath_division %></td></tr>
+      <tr><th>介助者</th><td><%= @health.caregiver %></td></tr>
+      <tr><th>身長</th><td><%= @health.height %>cm</td></tr>
+      <tr><th>体重</th><td><%= @health.body_weight %>kg</td></tr>
+      <tr><th>日中の様子</th><td><%= @health.daytime %></td>　<th>スタッフ</th><td><%= @health.daytime_staff %></td></tr>
+      <tr><th>夜間の様子</th><td><%= @health.night %></td>　<th>スタッフ</th><td><%= @health.night_staff %></td></tr>
+      <% if current_user.owner_id != nil %>
+        <tr><th>申し送り</th><td><%= @health.transfer %></td></tr>
+      <% end %>
+      <tr><th>家族へ連絡事項</th><td><%= @health.contact %></td></tr>
+    </table>
 
-<p>
-  <strong>責任者</strong>
-  <%= @health.responsibility %>
-</p>
-
-<p>
-  <strong>計測時間</strong>
-  <%= @health.time&.strftime("%H:%M") %>
-</p>
-
-<p>
-  <strong>体温</strong>
-  <%= @health.body_temperature %>℃
-</p>
-
-<p>
-  <strong>血圧</strong>
-  <%= @health.blood_pressure_up %>/<%= @health.blood_pressure_down %>
-</p>
-
-<p>
-  <strong>脈拍</strong>
-  <%= @health.pulse %>回/分
-</p>
-
-<p>
-  <strong>食事量</strong>
-  朝：<%= @health.breakfast %>
-  昼：<%= @health.lunch %>
-  おやつ：<%= @health.snack %>
-  夕：<%= @health.dinner %>
-  眠前：<%= @health.before_sleep %>
-</p>
-
-<p>
-  <strong>食事量</strong>
-  朝：<%= @health.morning_medicine %>
-  昼：<%= @health.daytime_medicine %>
-  おやつ：<%= @health.snack_medicine %>
-  夕：<%= @health.evening_medicine %>
-  眠前：<%= @health.sleep_medicine %>
-</p>
-
-<p>
-  <strong>入浴時間</strong>
-  <%= @health.bath_time&.strftime("%H:%M") %>
-</p>
-
-<p>
-  <strong>入浴種類</strong>
-  <%= @health.bath_division %>
-</p>
-
-<p>
-  <strong>介助者</strong>
-  <%= @health.caregiver %>
-</p>
-
-<p>
-  <strong>身長</strong>
-  <%= @health.height %>cm
-</p>
-
-<p>
-  <strong>体重</strong>
-  <%= @health.body_weight %>kg
-</p>
-
-<p>
-  <strong>日中の様子</strong>
-  <%= @health.daytime %>
-  <strong>スタッフ名</strong><%= @health.daytime_staff %>
-</p>
-
-<p>
-  <strong>夜間の様子</strong>
-  <%= @health.night %>
-  <strong>スタッフ名</strong><%= @health.night_staff %>
-</p>
-
-<% if current_user.owner_id != nil %>
-  <p>
-    <strong>申し送り</strong>
-    <%= @health.transfer %>
-  </p>
-<% end %>
-
-<p>
-  <strong>連絡事項</strong>
-  <%= @health.contact %>
-  <strong>スタッフ名</strong><%= @health.contact_staff %>
-</p>
-
-<%= link_to "戻る",healths_path(care_user_id: @health.care_user.id) %>
-<% if current_user.owner_id != nil %>
-  <%= link_to "編集",edit_health_path(@health.id) %>
-  <%= link_to "削除",health_path(@health.id), method: :delete %>
-<% end %>
+      <%= link_to "戻る",healths_path(care_user_id: @health.care_user.id) %>
+      <% if current_user.owner_id != nil %>
+        <%= link_to "編集",edit_health_path(@health.id) %>
+        <%= link_to "削除",health_path(@health.id), method: :delete %>
+      <% end %>
+  </div>
+</div>
 
 <!-- <%# if current_user.owner_id != nil %>
   <p>家族からのコメント</p>

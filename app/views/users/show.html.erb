@@ -1,31 +1,41 @@
-<% if user_signed_in? %>
-  <h2> 現在 <%= current_user.name %> さんがログインしています </h2>
-  <h4> メールアドレス： <%= current_user.email %> </h4>
-  <h4> 郵便番号： <%= current_user.postcode %> </h4>
-  <h4> 住所： <%= current_user.prefecture_name %><%= current_user.address_city %><%= current_user.address_street %> <%= current_user.address_building %> </h4>
-  <h4> 電話番号： <%= current_user.phone_number %> </h4>
-  <%= link_to "編集", edit_user_registration_path %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<div class="container">
+  <% if user_signed_in? %>
+    <h2> 現在 <%= current_user.name %> さんがログインしています </h2>
+    <!-- <h4> メールアドレス： <%#= current_user.email %> </h4>
+    <h4> 郵便番号： <%#= current_user.postcode %> </h4>
+    <h4> 住所： <%#= current_user.prefecture_name %><%= current_user.address_city %><%= current_user.address_street %> <%= current_user.address_building %> </h4>
+    <h4> 電話番号： <%#= current_user.phone_number %> </h4> -->
+    <%= link_to  edit_user_registration_path do %>
+      <%= image_tag asset_path("enpitsu.png"), class: "icon" %>
+    <% end %>
+    <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
-  <% if current_user.owner_id != nil %>
-    <%= link_to "利用者一覧", care_users_path(@care_users) %>
+    <% if current_user.owner_id != nil %>
+      <%= link_to "利用者一覧", care_users_path(@care_users) %>
+    <% else %>
+      <%= link_to care_users_path(@care_users) do %>
+        <%= image_tag asset_path("health.png"), class: "icon" %>
+      <% end %>
+      <%= link_to new_care_user_path do %>
+        <%= image_tag asset_path("care_user.png"), class: "icon" %>
+      <% end %>
+    <% end %>
+
+    <%= link_to reserves_path do %>
+      <%= image_tag asset_path("calendar.png"), class: "icon" %>
+    <% end %>
+
+    <% if current_user.admin? %>
+      <%= link_to "管理者画面", rails_admin_path %>
+    <% end %>
+
+    <!-- <%# if current_user.owner_id != nil %>
+      <h4>施設側</h4>
+    <%# else %>
+      <h4>家族側</h4>
+    <%# end %> -->
+
   <% else %>
-    <%= link_to "家族情報一覧", care_users_path(@care_users) %>
-    <%= link_to "家族登録", new_care_user_path %>
+    <h2> 現在ログインしていません </h2>
   <% end %>
-
-  <%= link_to "カレンダー", reserves_path %>
-
-  <% if current_user.admin? %>
-    <%= link_to "管理者画面", rails_admin_path %>
-  <% end %>
-
-  <% if current_user.owner_id != nil %>
-    <h4>施設側</h4>
-  <% else %>
-    <h4>家族側</h4>
-  <% end %>
-
-<% else %>
-  <h2> 現在ログインしていません </h2>
-<% end %>
+</div>
