@@ -9,6 +9,8 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲスト"
       user.admin = false
+      user.phone_number = "09011111111"
+      user.postcode = 1111111
     end
   end
 
@@ -17,8 +19,23 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = "ゲスト管理者"
       user.admin = true
+      user.phone_number = "09011111111"
+      user.postcode = 1111111
+
     end
   end
+
+  # def self.guest_facility
+  #   find_or_create_by!(email: 'facility_guest@example.com') do |user|
+  #     user.password = SecureRandom.urlsafe_base64
+  #     user.name = "ゲスト施設"
+  #     user.admin = false
+  #     user.owner_id = 2
+  #     user.phone_number = "09011111111"
+  #     user.postcode = 1111111
+  #   end
+  end
+
 
   include JpPrefecture
   jp_prefecture :prefecture_code

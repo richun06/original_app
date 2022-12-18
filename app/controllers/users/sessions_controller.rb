@@ -11,8 +11,15 @@ class Users::SessionsController < Devise::SessionsController
   def admin_guest_sign_in
     user = User.guest_admin
     sign_in user
-    redirect_to rails_admin_path, notice: '管理者ユーザーとしてログインしました。'
+    redirect_to user_path(user.id), notice: '管理者ユーザーとしてログインしました。'
   end
+
+  # def facility_guest_sign_in
+  #   user = User.guest_facility
+  #   sign_in user
+  #   redirect_to user_path(user.id), notice: '施設ユーザーとしてログインしました。'
+  # end
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
