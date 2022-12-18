@@ -22,12 +22,15 @@ ja:
               current_password: "を入力して下さい"
     attributes:
       user:
+        name: "名前"
         current_password: "現在のパスワード"
         name: 名前
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+        postcode: "郵便番号"
+        phone_number: "電話番号"
     models:
       user: "ユーザ"
   devise:

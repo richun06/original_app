@@ -103,7 +103,6 @@ ja:
       year: 年
 
   activerecord:
-    attributes:
     models:
       user: '利用者'
       care_users: '入居者様'
@@ -113,15 +112,16 @@ ja:
       user:
         name: '名前'
         current_password: '現在のパスワード'
-      care_users:
-        name: "入居者様名"
+      care_user:
+        user: "入居者"
+        name: "入居者名"
         birthday: "誕生日"
         age: "年齢"
         sex: "性別"
         image: "プロフィール画像"
         created_at: '作成日時'
         updated_at: '更新日時'
-      healths:
+      health:
         responsibility: "責任者"
         record_in_at: "日時"
         time: "計測時間"
@@ -152,7 +152,7 @@ ja:
         contact_staff: "スタッフ名"
         created_at: '作成日時'
         updated_at: '更新日時'
-      reserves:
+      reserve:
         title: "タイトル"
         content: "内容"
         created_at: '作成日時'
