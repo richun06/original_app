@@ -13,7 +13,7 @@
 
   <p>
     <div class="hhh">
-      <strong class="title">><%= CareUser.human_attribute_name(:name) %></strong>
+      <strong class="title"><%= CareUser.human_attribute_name(:name) %></strong>
     </div>
     <%= @care_user.name %>
   </p>
@@ -69,7 +69,7 @@
 
   <% if current_user.owner_id != nil %>
     <p>
-      <strong class="title"><%= CareUser.human_attribute_name(:availability) %><</strong>
+      <strong class="title"><%= CareUser.human_attribute_name(:availability) %></strong>
       <%= @care_user.availability %>
     </p>
     <p>
