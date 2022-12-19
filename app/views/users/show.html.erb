@@ -8,7 +8,9 @@
     <%= link_to  edit_user_registration_path do %>
       <%= image_tag asset_path("enpitsu.png"), class: "icon" %>
     <% end %>
-    <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <!-- 合格したらログアウトボタン消す -->
 
     <% if current_user.owner_id != nil %>
       <%= link_to "利用者一覧", care_users_path(@care_users) %>
