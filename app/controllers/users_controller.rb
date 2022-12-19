@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    # binding.pry
     @user = current_user
     @care_users = @user.care_users
   end

@@ -11,6 +11,7 @@ class User < ApplicationRecord
       user.admin = false
       user.phone_number = "09011111111"
       user.postcode = 1111111
+      user.owner_id = 2
     end
   end
 
