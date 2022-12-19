@@ -37,9 +37,9 @@
             <%# else %>
               <td>なし</td>
             <%# end %> -->
-            <td><%= health.transfer %></td>
+            <td><%= health.transfer.truncate(30) %></td>
           <% else %>
-            <td><%= health.contact %></td>
+            <td><%= health.contact.truncate(15) %></td>
           <% end %>
           <td><%= health.responsibility %></td>
           <td><%= link_to "詳細",health_path(health.id) %></td>
