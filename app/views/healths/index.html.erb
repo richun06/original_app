@@ -32,14 +32,17 @@
           <td><%= health.blood_pressure_up %>/<%= health.blood_pressure_down %></td>
           <td><%= health.updated_at.strftime("%H:%M") %></td>
           <% if current_user.owner_id != nil %>
-            <!-- <%# if health.comments != nil %>
-              <td>あり</td>
-            <%# else %>
-              <td>なし</td>
-            <%# end %> -->
-            <td><%= health.transfer.truncate(30) %></td>
+            <% if health.transfer == nil %>
+              <td><%= health.transfer %></td>
+            <% else %>
+              <td><%= health.transfer.truncate(30) %></td>
+            <% end %>
           <% else %>
-            <td><%= health.contact.truncate(15) %></td>
+            <% if health.transfer == nil %>
+              <td><%= health.contact %></td>
+            <% else %>
+              <td><%= health.contact.truncate(30) %></td>
+            <% end %>
           <% end %>
           <td><%= health.responsibility %></td>
           <td><%= link_to "詳細",health_path(health.id) %></td>
