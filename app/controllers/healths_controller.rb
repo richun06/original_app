@@ -2,6 +2,7 @@ class HealthsController < ApplicationController
   def new
     # byebug
     @health = Health.new
+    # binding.pry
     @care_user = CareUser.find(params[:care_user_id])
     # @care_user = params[:care_user_id]
     # byebug
@@ -18,6 +19,7 @@ class HealthsController < ApplicationController
         redirect_to healths_path(health_params), notice: "登録完了！"
       else
         # redirect_to new_health_path(care_user_id: care_user_id)
+        # redirect_to new_health_path(care_user_id: health_params[:care_user_id])
         render :new
       end
     end
