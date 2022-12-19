@@ -128,6 +128,10 @@ ja:
         availability: "現在の利用"
         division: "区分"
         image: "プロフィール画像"
+        food: "食事"
+        allergy: "アレルギー"
+        sick: "持病"
+        note: "その他"
         created_at: '作成日時'
         updated_at: '更新日時'
       health:
