@@ -48,10 +48,7 @@
 
     <div>
       <%= form.label :性別 %>
-      <%= form.label :男 %>
-      <%= form.radio_button :sex, :男 %>
-      <%= form.label :女  %>
-      <%= form.radio_button :sex, :女 %>
+      <%= form.select :sex, [["男","男"],["女","女"]] %>
     </div>
 
     <% if current_user.owner_id != nil %>

@@ -17,11 +17,12 @@ RSpec.describe '入居者管理機能', type: :system do
       it '作成した入居者が表示される' do
         visit new_care_user_path
         fill_in 'care_user[name]', with: "テスト入居者"
-        # fill_in 'care_user[birthday]', with: "1960年01月01日"
-        # select "1960-01-01", from: "birthday"
-        fill_in 'care_user[birthday]', with: '001960-12-17'
+        select "1960", from: "care_user[birthday(1i)]"
+        select "11", from: "care_user[birthday(2i)]"
+        select "11", from: "care_user[birthday(3i)]"
         fill_in 'care_user[age]', with: "79"
-        fill_in 'care_user[sex]', with: "0"
+        select "女", from: "care_user_sex"
+        sleep(1)
         click_on "登録"
         expect(page).to have_content 'テスト入居者'
       end
