@@ -1,4 +1,4 @@
-  <h1><%= @care_user.name %>様の状態登録</h1>
+  <h1><%= @care_user.name %>様の介護記録登録</h1>
   <%= form_with(model: @health, local:true) do |form| %>
     <% if @health.errors.any? %>
       <div id="error_explanation">
