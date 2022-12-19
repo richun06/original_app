@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :health do
     responsibility { "野原" }
     record_in_at { "2022-10-01" }
+    care_user_id { '1' }
   end
 
   factory :second_health, class: Health do

@@ -28,24 +28,22 @@ RSpec.describe '入居者管理機能', type: :system do
       end
     end
   end
-
-  # describe '一覧表示機能' do
-  #   context '一覧画面に遷移した場合' do
-  #     it '作成済みの利用者一覧が表示される' do
-  #       visit care_users_path
-  #       expect(page).to have_content 'テスト入居者'
-  #     end
-  #   end
-  # end
-
-  # describe '詳細表示機能' do
-  #   context '任意の利用者詳細画面に遷移した場合' do
-  #     it '該当利用者の内容が表示される' do
-  #       visit care_users_path(care_user.id)
-  #       expect(page).to have_content 'テスト入居者'
-  #     end
-  #   end
-  # end
+  describe '一覧表示機能' do
+    context '一覧画面に遷移した場合' do
+      it '作成済みの利用者一覧が表示される' do
+        visit care_users_path
+        expect(page).to have_content 'おじいちゃん'
+      end
+    end
+  end
+  describe '詳細表示機能' do
+    context '任意の利用者詳細画面に遷移した場合' do
+      it '該当利用者の内容が表示される' do
+        visit care_users_path(care_user.id)
+        expect(page).to have_content 'おじいちゃん'
+      end
+    end
+  end
 
   # describe '検索機能' do
   #   before do

@@ -1,10 +1,7 @@
 # bundle exec rspec ./spec/models/task_spec.rb
 require 'rails_helper'
 RSpec.describe 'ヘルスモデル機能', type: :model do
-  let!(:care_user) { FactoryBot.create(:care_user) }
-  before do
-    @care_user = CareUser.find_by(name: "おじいちゃん")
-  end
+  let!(:first_user) { FactoryBot.create(:user) }
   describe 'バリデーションのテスト' do
     context '責任者が空の場合' do
       it 'バリデーションにひっかる' do
@@ -12,25 +9,18 @@ RSpec.describe 'ヘルスモデル機能', type: :model do
         expect(health).not_to be_valid
       end
     end
-    #   context 'ヘルスの誕生日が空の場合' do
-    #   it 'バリデーションにひっかかる' do
-    #     care_user = CareUser.new(name: 'まさお', birthday: '', age: 90, sex: "男")
-    #     expect(care_user).not_to be_valid
-    #   end
-    # end
-    # context 'ヘルスの性別が空の場合' do
-    #   it 'バリデーションにひっかかる' do
-    #     care_user = CareUser.new(name: 'まさお', birthday: '1970-01-01', age: 90, sex: "")
-    #     expect(care_user).not_to be_valid
-    #   end
-    # end
-
-    # context 'ヘルスの名前と生年月日、性別が記載されている場合' do
-    #   it 'バリデーションが通る' do
-    #     care_user = CareUser.new(name: 'みさえ', birthday: '1970/01/01', age: 90, sex: "女", user_id: @current_user.id)
-    #     expect(care_user).to be_valid
-    #   end
-    # end
+      context 'ヘルスの日付が空の場合' do
+      it 'バリデーションにひっかかる' do
+        health = Health.create(responsibility: 'まさお', record_in_at: '')
+        expect(health).not_to be_valid
+      end
+    end
+    context 'ヘルスの責任者と日付が記載されている場合' do
+      it 'バリデーションが通る' do
+        health = Health.create(responsibility: 'まさお', record_in_at: '2022-12-20', care_user_id: first_user.id)
+        expect(health).not_to be_valid
+      end
+    end
   end
 
   # describe '検索機能' do
