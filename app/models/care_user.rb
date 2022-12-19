@@ -8,12 +8,18 @@ class CareUser < ApplicationRecord
   scope :availability_search, -> (availability) { where(availability: availability) if availability.present? }
   scope :division_search, -> (division) { where(division: division) if division.present? }
 
+  with_options presence: true do
+    validates :name
+    validates :birthday
+    validates :sex
+    validates :food, length: { maximum: 255 }
+    validates :allergy, length: { maximum: 255 }
+    validates :sick, length: { maximum: 255 }
+    validates :note, length: { maximum: 255 }
+  end
+
   has_many :healths, dependent: :destroy
   belongs_to :user
 
   mount_uploader :image, ImageUploader
-
-  validates :name, presence: true
-  validates :birthday, presence: true
-  validates :sex, presence: true
 end
