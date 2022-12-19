@@ -16,7 +16,7 @@
   <div class="ggg">
     <div>
       <%= form.label :responsibility, t('activerecord.attributes.health.responsibility') %>
-      <%= form.text_field :responsibility %>
+      <%= form.text_field :responsibility, :placeholder => "入力必須" %>
     </div>
 
     <div>
@@ -31,17 +31,17 @@
 
     <div>
       <%= form.label :body_temperature, t('activerecord.attributes.health.body_temperature') %>
-      <%= form.number_field :body_temperature, step: '0.1' %>℃
+      <%= form.number_field :body_temperature, :placeholder => "例) 36.5", step: '0.1' %>℃
     </div>
 
     <div>
       <%= form.label :blood_pressure_up, t('activerecord.attributes.health.blood_pressure_up') %>
-      <%= form.number_field :blood_pressure_up %>/<%= form.number_field :blood_pressure_down %>
+      <%= form.number_field :blood_pressure_up, :placeholder => "例) 110" %>/<%= form.number_field :blood_pressure_down, :placeholder => "例) 70" %>
     </div>
 
     <div>
       <%= form.label :pulse, t('activerecord.attributes.health.pulse') %>
-      <%= form.number_field :pulse %>回/分
+      <%= form.number_field :pulse, :placeholder => "例) 60" %>回/分
     </div>
 
     <div>
@@ -79,12 +79,12 @@
 
     <div>
       <%= form.label :height, t('activerecord.attributes.health.height') %>
-      <%= form.number_field :height, step: '0.1' %>cm
+      <%= form.number_field :height, step: '0.1', :placeholder => "例) 160.5" %>cm
     </div>
 
     <div>
       <%= form.label :body_weight, t('activerecord.attributes.health.body_weight') %>
-      <%= form.number_field :body_weight, step: '0.1' %>kg
+      <%= form.number_field :body_weight, step: '0.1', :placeholder => "例) 50" %>kg
     </div>
 
     <div>
@@ -108,7 +108,7 @@
 
     <div>
       <%= form.label :contact, t('activerecord.attributes.health.contact') %>
-      <%= form.text_area :contact %>
+      <%= form.text_area :contact, :placeholder => "ご家族へ共有されます" %>
       <%= form.label :contact_staff, t('activerecord.attributes.health.contact_staff') %>
       <%= form.text_field :contact_staff %>
     </div>
