@@ -51,19 +51,19 @@
               <td><%= care_user.availability %></td>
               <td><%= care_user.division %></td>
             <% end %>
+            <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
+            <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
             <td>
               <% if current_user.owner_id != nil %>
                 <%= link_to "削除",care_user_path(care_user.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
               <% end %>
             </td>
+            <td><%= link_to "状態一覧",healths_path(care_user_id: care_user.id) %></td>
             <td>
               <% if current_user.owner_id != nil %>
                 <%= link_to "状態登録",new_health_path(care_user_id: care_user.id) %>
               <% end %>
             </td>
-            <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
-            <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
-            <td><%= link_to "状態一覧",healths_path(care_user_id: care_user.id) %></td>
           </tr>
         <% end %>
       </tbody>
