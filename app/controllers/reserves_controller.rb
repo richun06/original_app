@@ -22,7 +22,9 @@ class ReservesController < ApplicationController
     @reserve.user_id = current_user.id
     if @reserve.save
       redirect_to reserves_path, notice: "登録完了！"
-      return
+      # return
+    else
+      render :new
     end
   end
 
