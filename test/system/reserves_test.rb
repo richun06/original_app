@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ReservesTest < ApplicationSystemTestCase
   setup do
-    @reserf = reserves(:one)
+    @reserve = reserves(:one)
   end
 
   test "visiting the index" do
@@ -14,9 +14,9 @@ class ReservesTest < ApplicationSystemTestCase
     visit reserves_url
     click_on "New Reserve"
 
-    fill_in "Content", with: @reserf.content
-    fill_in "Start time", with: @reserf.start_time
-    fill_in "Title", with: @reserf.title
+    fill_in "Content", with: @reserve.content
+    fill_in "Start time", with: @reserve.start_time
+    fill_in "Title", with: @reserve.title
     click_on "Create Reserve"
 
     assert_text "Reserve was successfully created"
@@ -27,9 +27,9 @@ class ReservesTest < ApplicationSystemTestCase
     visit reserves_url
     click_on "Edit", match: :first
 
-    fill_in "Content", with: @reserf.content
-    fill_in "Start time", with: @reserf.start_time
-    fill_in "Title", with: @reserf.title
+    fill_in "Content", with: @reserve.content
+    fill_in "Start time", with: @reserve.start_time
+    fill_in "Title", with: @reserve.title
     click_on "Update Reserve"
 
     assert_text "Reserve was successfully updated"

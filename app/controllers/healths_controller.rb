@@ -20,7 +20,9 @@ class HealthsController < ApplicationController
       else
         # redirect_to new_health_path(care_user_id: care_user_id)
         # redirect_to new_health_path(care_user_id: health_params[:care_user_id])
-        render :new
+        redirect_to request.referer
+        # render :new
+        # @care_user
       end
     end
   end

@@ -25,7 +25,7 @@
   <%#= @care_users.name %>
 </p> -->
 
-<%= link_to '編集', edit_reserf_path(@reserve) %>
-<%= link_to '消去',reserf_path(@reserve.id), method: :delete %>
+<%= link_to '編集', edit_reserve_path(@reserve) %>
+<%= link_to '消去',reserve_path(@reserve.id), method: :delete %>
 <%= link_to '戻る', reserves_path %>
 </div>
