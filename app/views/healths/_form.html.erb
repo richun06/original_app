@@ -6,10 +6,10 @@
       <ul>
         <% @health.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
-    <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
   <%= form.hidden_field :care_user_id, :value => @care_user.id %>
 
