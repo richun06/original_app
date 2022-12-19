@@ -104,20 +104,29 @@ ja:
 
   activerecord:
     models:
-      user: '利用者'
-      care_users: '入居者様'
-      healths: 'ヘルス情報'
-      reserves: 'カレンダー'
+      user: 'ユーザ'
+      care_user: '入居者'
+      health: 'ヘルス情報'
+      reserve: 'カレンダー'
+      comment: 'コメント'
     attributes:
       user:
         name: '名前'
         current_password: '現在のパスワード'
+        postcode: '郵便番号'
+        prefecture_name: '都道府県'
+        address_city: '市区町村'
+        address_street: '番地'
+        address_building: '建物名'
+        phone_number: '電話番号'
       care_user:
         user: "入居者"
         name: "入居者名"
-        birthday: "誕生日"
+        birthday: "生年月日"
         age: "年齢"
         sex: "性別"
+        availability: "現在の利用"
+        division: "区分"
         image: "プロフィール画像"
         created_at: '作成日時'
         updated_at: '更新日時'
@@ -129,15 +138,15 @@ ja:
         blood_pressure_up: "血圧"
         blood_pressure_down: "血圧"
         pulse: "脈拍"
-        breakfast: "朝食量"
-        lunch: "昼食量"
-        snack: "おやつ量"
-        dinner: "夕食量"
+        breakfast: "朝"
+        lunch: "昼"
+        snack: "おやつ"
+        dinner: "夕"
         before_sleep: "眠前"
-        morning_medicine: "朝後"
-        daytime_medicine: "昼後"
-        snack_medicine: "おやつ後"
-        evening_medicine: "夕食後"
+        morning_medicine: "朝"
+        daytime_medicine: "昼"
+        snack_medicine: "おやつ"
+        evening_medicine: "夕"
         sleep_medicine: "眠前"
         bath_time: "入浴時間"
         bath_division: "入浴種別"
@@ -150,11 +159,13 @@ ja:
         night_staff: "スタッフ名"
         contact: "連絡事項"
         contact_staff: "スタッフ名"
+        transfer: "申し送り"
         created_at: '作成日時'
-        updated_at: '更新日時'
+        updated_at: '最終更新日時'
       reserve:
         title: "タイトル"
-        content: "内容"
+        content: "詳細"
+        start_time: "日時"
         created_at: '作成日時'
         updated_at: '更新日時'
     errors:

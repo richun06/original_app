@@ -38,7 +38,7 @@
 
       <div class="field">
         <div class="form_group">
-          <%= f.label :postcode, "郵便番号" %>
+          <%= f.label :postcode, t('activerecord.attributes.user.postcode') %>
         </div>
         <%= f.text_field :postcode, autocomplete: 'postcode', :placeholder => "例) 1234567", class: "form_a" %>
         <!-- ハイフンは入れずに入力してください -->
@@ -46,35 +46,35 @@
 
       <div class="field">
         <div class="form_group">
-          <%= f.label :prefecture_name, "都道府県" %>
+          <%= f.label :prefecture_name, t('activerecord.attributes.user.prefecture_name') %>
         </div>
         <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: "form_a" %>
       </div>
 
       <div class="field">
         <div class="form_group">
-          <%= f.label :address_city, "市区町村" %>
+          <%= f.label :address_city, t('activerecord.attributes.user.address_city') %>
         </div>
         <%= f.text_field :address_city, autocomplete: 'address_city', :placeholder => "例) 市区町村を入力してください", class: "form_a"%>
       </div>
 
       <div class="field">
         <div class="form_group">
-          <%= f.label :address_street, "番地" %>
+          <%= f.label :address_street, t('activerecord.attributes.user.address_street') %>
         </div>
         <%= f.text_field :address_street, autocomplete: 'address_street', :placeholder => "例) 番地を入力してください", class: "form_a" %>
       </div>
 
       <div class="field">
         <div class="form_group">
-          <%= f.label :address_building, "建物名" %>
+          <%= f.label :address_building, t('activerecord.attributes.user.address_building') %>
         </div>
         <%= f.text_field :address_building, autocomplete: 'address_building', :placeholder => "例) 建物名を入力してください", class: "form_a" %>
       </div>
 
       <div class="field">
         <div class="form_group">
-          <%= f.label :phone_number, "電話番号" %>
+          <%= f.label :phone_number, t('activerecord.attributes.user.phone_number') %>
         </div>
         <%= f.telephone_field :phone_number, autocomplete: 'phone_number', :placeholder => "例) 090-1234-5678", class: "form_a" %>
       </div>

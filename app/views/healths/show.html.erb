@@ -3,49 +3,34 @@
 
   <div class="form_c">
     <table class="table">
-      <tr><th>日付</th><td><%= @health.record_in_at&.strftime("%Y年 %m月 %d日") %></td></tr>
-      <tr><th>責任者</th><td><%= @health.responsibility %></td></tr>
-      <tr><th>計測時間</th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
-      <tr><th>体温</th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
-      <tr><th>血圧</th><td><%= @health.blood_pressure_up %>/<%= @health.blood_pressure_down %></td></tr>
-      <tr><th>脈拍</th><td><%= @health.pulse %>回/分</td></tr>
-      <tr><th>食事量</th><td>朝：<%= @health.breakfast %>　昼：<%= @health.lunch %>　おやつ：<%= @health.snack %>　夕：<%= @health.dinner %>　眠前：<%= @health.before_sleep %></td></tr>
-      <tr><th>服薬</th><td>朝：<%= @health.morning_medicine %>　昼：<%= @health.daytime_medicine %>　おやつ：<%= @health.snack_medicine %>　夕：<%= @health.evening_medicine %>　眠前：<%= @health.sleep_medicine %></td></tr>
-      <tr><th>入浴時間</th><td><%= @health.bath_time&.strftime("%H:%M") %></td></tr>
-      <tr><th>入浴種類</th><td><%= @health.bath_division %></td></tr>
-      <tr><th>介助者</th><td><%= @health.caregiver %></td></tr>
-      <tr><th>身長</th><td><%= @health.height %>cm</td></tr>
-      <tr><th>体重</th><td><%= @health.body_weight %>kg</td></tr>
-      <tr><th>日中の様子</th><td><%= @health.daytime %></td>　<th>スタッフ</th><td><%= @health.daytime_staff %></td></tr>
-      <tr><th>夜間の様子</th><td><%= @health.night %></td>　<th>スタッフ</th><td><%= @health.night_staff %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:record_in_at) %></th><td><%= @health.record_in_at&.strftime("%Y年 %m月 %d日") %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:responsibility) %></th><td><%= @health.responsibility %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:time) %></th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:body_temperature) %></th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:blood_pressure_up) %></th><td><%= @health.blood_pressure_up %>/<%= @health.blood_pressure_down %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:pulse) %></th><td><%= @health.pulse %>回/分</td></tr>
+      <tr><th>食事量</th><td><%= Health.human_attribute_name(:breakfast) %>：<%= @health.breakfast %>　<%= Health.human_attribute_name(:lunch) %>：<%= @health.lunch %>　<%= Health.human_attribute_name(:snack) %>：<%= @health.snack %>　<%= Health.human_attribute_name(:dinner) %>：<%= @health.dinner %>　<%= Health.human_attribute_name(:before_sleep) %>：<%= @health.before_sleep %></td></tr>
+      <tr><th>服薬</th><td><%= Health.human_attribute_name(:morning_medicine) %>：<%= @health.morning_medicine %>　<%= Health.human_attribute_name(:daytime_medicine) %>：<%= @health.daytime_medicine %>　<%= Health.human_attribute_name(:snack_medicine) %>：<%= @health.snack_medicine %>　<%= Health.human_attribute_name(:evening_medicine) %>：<%= @health.evening_medicine %>　<%= Health.human_attribute_name(:sleep_medicine) %>：<%= @health.sleep_medicine %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:bath_time) %></th><td><%= @health.bath_time&.strftime("%H:%M") %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:bath_division) %></th><td><%= @health.bath_division %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:caregiver) %></th><td><%= @health.caregiver %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:height) %></th><td><%= @health.height %>cm</td></tr>
+      <tr><th><%= Health.human_attribute_name(:body_weight) %></th><td><%= @health.body_weight %>kg</td></tr>
+      <tr><th><%= Health.human_attribute_name(:daytime) %></th><td><%= @health.daytime %></td>　<th><%= Health.human_attribute_name(:daytime_staff) %></th><td><%= @health.daytime_staff %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:night) %></th><td><%= @health.night %></td>　<th><%= Health.human_attribute_name(:night_staff) %></th><td><%= @health.night_staff %></td></tr>
       <% if current_user.owner_id != nil %>
-        <tr><th>申し送り</th><td><%= @health.transfer %></td></tr>
+        <tr><th><%= Health.human_attribute_name(:transfer) %></th><td><%= @health.transfer %></td></tr>
       <% end %>
-      <tr><th>家族へ連絡事項</th><td><%= @health.contact %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:contact) %></th><td><%= @health.contact %></td></tr>
     </table>
 
-      <%= link_to "戻る",healths_path(care_user_id: @health.care_user.id) %>
-      <% if current_user.owner_id != nil %>
-        <%= link_to "編集",edit_health_path(@health.id) %>
-        <%= link_to "削除",health_path(@health.id), method: :delete %>
-      <% end %>
+    <%= link_to "戻る",healths_path(care_user_id: @health.care_user.id) %>
+    <% if current_user.owner_id != nil %>
+      <%= link_to "編集",edit_health_path(@health.id) %>
+      <%= link_to "削除",health_path(@health.id), method: :delete %>
+    <% end %>
   </div>
 </div>
-
-<!-- <%# if current_user.owner_id != nil %>
-  <p>家族からのコメント</p>
-<%# else %>
-  <p>コメント</p>
-<%# end %>
-
-  <div id="comments_area">
-    <%#= render partial: 'comments/index', locals: { comments: @comments, health: @health } %>
-  </div>
-
-  <%#= render partial: 'comments/form', locales: { comment: @comment, health: @health } %>
-
-</div> -->
-
 
 
 

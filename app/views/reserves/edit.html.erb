@@ -1,18 +1,18 @@
 <%= form_with(model: @reserve, local: true) do |form| %>
 
   <div class="title">
-    <div class="form-tag">タイトル</div>
+    <div class="form-tag"><%= Reserve.human_attribute_name(:title) %></div>
     <%= form.select :title, [["面会", "面会"], ["通院", "通院"], ["外食", "外食"], ["帰宅", "帰宅"], ["外泊", "外泊"], ["その他", "その他"]], include_blank: "選択して下さい" %>
   </div>
 
 
   <div class="content">
-    <div class="form-tag">内容</div>
+    <div class="form-tag"><%= Reserve.human_attribute_name(:content) %></div>
     <%= form.text_area :content %>
   </div>
 
     <div class="time">
-    <div class="form-tag">時間</div>
+    <div class="form-tag"><%= Reserve.human_attribute_name(:start_time) %></div>
     <%= form.datetime_select :start_time %>
   </div>
 

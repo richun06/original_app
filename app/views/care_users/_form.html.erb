@@ -19,14 +19,14 @@
 
     <div>
       <div class="form_team">
-        <%= form.label :名前 %>
+        <%= form.label :name, t('activerecord.attributes.care_user.name') %>
       </div>
       <%= form.text_field :name, :placeholder => "例) 山田 太郎" %>
     </div>
 
     <div>
       <div class="form_team">
-        <%= form.label :生年月日 %>
+        <%= form.label :birthday, t('activerecord.attributes.care_user.birthday') %>
       </div>
       <%= raw sprintf(
         form.date_select(
@@ -41,19 +41,19 @@
 
     <div>
       <div class="form_team">
-        <%= form.label :年齢 %>
+        <%= form.label :age, t('activerecord.attributes.care_user.age') %>
       </div>
       <%= form.number_field :age, :placeholder => "例) 60" %>
     </div>
 
     <div>
-      <%= form.label :性別 %>
+      <%= form.label :sex, t('activerecord.attributes.care_user.sex') %>
       <%= form.select :sex, [["男","男"],["女","女"]] %>
     </div>
 
     <% if current_user.owner_id != nil %>
       <div>
-        <%= form.label :現在の利用 %>
+        <%= form.label :availability, t('activerecord.attributes.care_user.availability') %>
         <%= form.label :あり %>
         <%= form.radio_button :availability, :あり %>
         <%= form.label :なし  %>
@@ -61,14 +61,14 @@
       </div>
 
       <div>
-        <%= form.label :区分 %>
+        <%= form.label :division, t('activerecord.attributes.care_user.division') %>
         <!-- <%#= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %> -->
         <%= form.select :division, [["L宿泊", "L宿泊"], ["S宿泊", "S宿泊"], ["通所", "通所"], ["訪問", "訪問"], ["その他", "その他"]], { include_blank: true, prompt: '選択してください' } %>
       </div>
     <% end %>
 
     <div class="field">
-      <%= form.label :image %>
+      <%= form.label :image, t('activerecord.attributes.care_user.image') %>
       <%= form.file_field :image %>
       <%= form.hidden_field :image_cache %>
     </div>

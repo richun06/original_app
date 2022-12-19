@@ -18,8 +18,8 @@
   <tbody> -->
     <%# @reserves.each do |reserve| %>
       <!-- <tr> -->
-        <td><%#= link_to reserve.title , reserve %></td>
-        <td><%#= reserve.start_time.strftime("%m-%d") %></td>
+        <!-- <td><%#= link_to reserve.title , reserve %></td>
+        <td><%#= reserve.start_time.strftime("%m-%d") %></td> -->
       <!-- </tr> -->
     <%# end %>
   <!-- </tbody>
@@ -32,17 +32,17 @@
   <%= form.hidden_field :user_id, :value => current_user.id %>
 
   <div class="title">
-      <div class="form-tag">タイトル</div>
+      <div class="form-tag"><%= Reserve.human_attribute_name(:title) %></div>
       <%= form.select :title, [["面会", "面会"], ["通院", "通院"], ["外食", "外食"], ["帰宅", "帰宅"], ["外泊", "外泊"], ["その他", "その他"]], include_blank: "選択して下さい" %>
   </div>
 
   <div class="content">
-    <div class="form-tag">詳細</div>
+    <div class="form-tag"><%= Reserve.human_attribute_name(:content) %></div>
     <%= form.text_area :content, :placeholder => "その他を選ばれた場合は必ず入力してください"  %>
   </div>
 
   <div class="time">
-    <div class="form-tag">時間</div>
+    <div class="form-tag"><%= Reserve.human_attribute_name(:start_time) %></div>
     <%= form.datetime_select :start_time %>
   </div>
 

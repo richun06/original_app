@@ -13,39 +13,39 @@
 
   <p>
     <div class="hhh">
-      <strong class="title">名前</strong>
+      <strong class="title">><%= CareUser.human_attribute_name(:name) %></strong>
     </div>
     <%= @care_user.name %>
   </p>
 
   <p>
     <div class="hhh">
-      <strong class="title">生年月日</strong>
+      <strong class="title"><%= CareUser.human_attribute_name(:birthday) %></strong>
     </div>
     <%= @care_user.birthday.strftime("%Y年 %m月 %d日") %>
   </p>
 
   <p>
     <div class="hhh">
-      <strong class="title">年齢</strong>
+      <strong class="title"><%= CareUser.human_attribute_name(:age) %></strong>
     </div>
     <%= @care_user.age %>歳
   </p>
 
   <p>
     <div class="hhh">
-      <strong class="title">性別</strong>
+      <strong class="title"><%= CareUser.human_attribute_name(:sex) %></strong>
     </div>
     <%= @care_user.sex %>
   </p>
 
   <% if current_user.owner_id != nil %>
     <p>
-      <strong class="title">現在の利用</strong>
+      <strong class="title"><%= CareUser.human_attribute_name(:availability) %><</strong>
       <%= @care_user.availability %>
     </p>
     <p>
-      <strong class="title">区分</strong>
+      <strong class="title"><%= CareUser.human_attribute_name(:division) %></strong>
       <%= @care_user.division %>
     </p>
   <% end %>

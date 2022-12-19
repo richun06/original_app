@@ -1,8 +1,8 @@
 <div class="container">
   <% if current_user.owner_id != nil %>
-    <h1>利用者　編集画面</h1>
+    <h1>利用者情報　編集画面</h1>
   <% else %>
-    <h1>ご家族情報編集</h1>
+    <h1>ご家族情報　編集画面</h1>
   <% end %>
 
   <%= render 'form' %>

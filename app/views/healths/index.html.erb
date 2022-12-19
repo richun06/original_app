@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= @care_user.name %>さんの状態一覧</h1>
+  <h1><%= @care_user.name %>様の状態一覧</h1>
   <div class="title_a">
     <%= link_to "戻る",care_users_path %>
     <% if current_user.owner_id != nil %>
@@ -12,16 +12,16 @@
   <table class="table p-2 flex-shrink-1 bd-highlight">
     <thead>
       <tr>
-        <th>月日</th>
-        <th>バイタル</th>
-        <th>最終記録日時</th>
-        <!-- <th>コメント</th> -->
+        <th><%= Health.human_attribute_name(:record_in_at) %></th>
+        <th><%= Health.human_attribute_name(:blood_pressure_up) %></th>
+        <!-- <th>バイタル</th> -->
+        <th><%= Health.human_attribute_name(:updated_at) %></th>
         <% if current_user.owner_id != nil %>
-          <th>申し送り</th>
+          <th><%= Health.human_attribute_name(:transfer) %></th>
         <% else %>
-          <th>施設から連絡事項</th>
+          <th><%= Health.human_attribute_name(:contact) %></th>
         <% end %>
-        <th>責任者</th>
+        <th><%= Health.human_attribute_name(:responsibility) %></th>
       </tr>
     </thead>
 

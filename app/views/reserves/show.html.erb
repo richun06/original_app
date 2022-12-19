@@ -1,31 +1,32 @@
 <p id="notice"><%= notice %></p>
 <div class="show">
-<p>
-  <strong>タイトル</strong>
-  <%= @reserve.title %>
-</p>
 
-<p>
-  <strong>内容</strong>
-  <%= @reserve.content %>
-</p>
+  <p>
+    <strong>お名前</strong>
+    <%= @reserve.user.name %>
+  </p>
 
-<p>
-  <strong>日時</strong>
-  <%= @reserve.start_time.strftime("%m月 %d日 %H:%M") %>
-</p>
+  <p>
+    <strong><%= Reserve.human_attribute_name(:title) %></strong>
+    <%= @reserve.title %>
+  </p>
 
-<p>
-  <strong>名前</strong>
-  <%= @reserve.user.name %>
-</p>
+  <p>
+    <strong><%= Reserve.human_attribute_name(:content) %></strong>
+    <%= @reserve.content %>
+  </p>
 
-<!-- <p>
-  <strong>利用者名</strong>
-  <%#= @care_users.name %>
-</p> -->
+  <p>
+    <strong><%= Reserve.human_attribute_name(:start_time) %></strong>
+    <%= @reserve.start_time.strftime("%m月 %d日 %H:%M") %>
+  </p>
 
-<%= link_to '編集', edit_reserve_path(@reserve) %>
-<%= link_to '消去',reserve_path(@reserve.id), method: :delete %>
-<%= link_to '戻る', reserves_path %>
+  <!-- <p>
+    <strong>利用者名</strong>
+    <%#= @care_users.name %>
+  </p> -->
+
+  <%= link_to '編集', edit_reserve_path(@reserve) %>
+  <%= link_to '消去',reserve_path(@reserve.id), method: :delete %>
+  <%= link_to '戻る', reserves_path %>
 </div>
