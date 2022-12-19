@@ -25,18 +25,46 @@
     <%= @care_user.birthday.strftime("%Y年 %m月 %d日") %>
   </p>
 
-  <p>
+  <!-- <p>
     <div class="hhh">
-      <strong class="title"><%= CareUser.human_attribute_name(:age) %></strong>
+      <strong class="title"><%#= CareUser.human_attribute_name(:age) %></strong>
     </div>
-    <%= @care_user.age %>歳
-  </p>
+    <%#= @care_user.age %>歳
+  </p> -->
 
   <p>
     <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:sex) %></strong>
     </div>
     <%= @care_user.sex %>
+  </p>
+
+  <p>
+    <div class="hhh">
+      <strong class="title"><%= CareUser.human_attribute_name(:food) %></strong>
+    </div>
+    <%= @care_user.food %>
+  </p>
+
+  <p>
+    <div class="hhh">
+      <strong class="title"><%= CareUser.human_attribute_name(:allergy) %></strong>
+    </div>
+    <%= @care_user.allergy %>
+  </p>
+
+  <p>
+    <div class="hhh">
+      <strong class="title"><%= CareUser.human_attribute_name(:sick) %></strong>
+    </div>
+    <%= @care_user.sick %>
+  </p>
+
+  <p>
+    <div class="hhh">
+      <strong class="title"><%= CareUser.human_attribute_name(:note) %></strong>
+    </div>
+    <%= @care_user.note %>
   </p>
 
   <% if current_user.owner_id != nil %>

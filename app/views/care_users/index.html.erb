@@ -31,8 +31,12 @@
         <tr>
           <th><%= CareUser.human_attribute_name(:name) %></th>
           <th><%= CareUser.human_attribute_name(:birthday) %></th>
-          <th><%= CareUser.human_attribute_name(:age) %></th>
+          <!-- <th><%#= CareUser.human_attribute_name(:age) %></th> -->
           <th><%= CareUser.human_attribute_name(:sex) %></th>
+          <th><%= CareUser.human_attribute_name(:food) %></th>
+          <th><%= CareUser.human_attribute_name(:allergy) %></th>
+          <th><%= CareUser.human_attribute_name(:sick) %></th>
+          <!-- <th><%#= CareUser.human_attribute_name(:note) %></th> 一覧には表示させない -->
           <% if current_user.owner_id != nil %>
             <th><%= CareUser.human_attribute_name(:availability) %></th>
             <th><%= CareUser.human_attribute_name(:division) %></th>
@@ -45,16 +49,49 @@
           <tr>
             <td><%= care_user.name %></td>
             <td><%= care_user.birthday.strftime("%Y年 %m月 %d日") %></td>
-            <td><%= care_user.age %>歳</td>
+            <!-- <td><%#= care_user.age %>歳</td> -->
             <td><%= care_user.sex %></td>
+
+            <% if care_user.food == nil %>
+              <td><%= care_user.food %></td>
+            <% else %>
+              <% if current_user.owner_id != nil %>
+                <td><%= care_user.food.truncate(7) %></td>
+              <% else %>
+                <td><%= care_user.food.truncate(10) %></td>
+              <% end %>
+            <% end %>
+
+            <% if care_user.allergy == nil %>
+              <td><%= care_user.allergy %></td>
+            <% else %>
+              <% if current_user.owner_id != nil %>
+                <td><%= care_user.allergy.truncate(7) %></td>
+              <% else %>
+                <td><%= care_user.allergy.truncate(10) %></td>
+              <% end %>
+            <% end %>
+
+            <% if care_user.sick == nil %>
+              <td><%= care_user.sick %></td>
+            <% else %>
+              <% if current_user.owner_id != nil %>
+                <td><%= care_user.sick.truncate(7) %></td>
+              <% else %>
+              <td><%= care_user.sick.truncate(10) %></td>
+              <% end %>
+            <% end %>
+
+            <!-- <td><%#= care_user.note %></td> -->
             <% if current_user.owner_id != nil %>
               <td><%= care_user.availability %></td>
               <td><%= care_user.division %></td>
             <% end %>
+
             <td><%= link_to "詳細",care_user_path(care_user.id) %></td>
             <td><%= link_to "編集",edit_care_user_path(care_user.id) %></td>
             <td>
-              <% if current_user.owner_id != nil %>
+                <% if current_user.owner_id != nil %>
                 <%= link_to "削除",care_user_path(care_user.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
               <% end %>
             </td>

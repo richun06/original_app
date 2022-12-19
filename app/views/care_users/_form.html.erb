@@ -39,16 +39,36 @@
         '年 ', '月 ') + '日' %>
     </div>
 
-    <div>
+    <!-- <div>
       <div class="form_team">
-        <%= form.label :age, t('activerecord.attributes.care_user.age') %>
+        <%#= form.label :age, t('activerecord.attributes.care_user.age') %>
       </div>
-      <%= form.number_field :age, :placeholder => "例) 60" %>
-    </div>
+      <%#= form.number_field :age, :placeholder => "例) 60" %>
+    </div> -->
 
     <div>
       <%= form.label :sex, t('activerecord.attributes.care_user.sex') %>
       <%= form.select :sex, [["男","男"],["女","女"]] %>
+    </div>
+
+    <div>
+      <%= form.label :food, t('activerecord.attributes.care_user.food') %>
+      <%= form.text_area :food, :placeholder => "お食事の傾向(お好みの食べ物や好まれない物など)" %>
+    </div>
+
+    <div>
+      <%= form.label :allergy, t('activerecord.attributes.care_user.allergy') %>
+      <%= form.text_area :allergy, :placeholder => "アレルギーをお持ちでしたら必ず記入して下さい" %>
+    </div>
+
+    <div>
+      <%= form.label :sick, t('activerecord.attributes.care_user.sick') %>
+      <%= form.text_area :sick, :placeholder => "持病や既往歴、飲まれているお薬について記入して下さい" %>
+    </div>
+
+    <div>
+      <%= form.label :note, t('activerecord.attributes.care_user.note') %>
+      <%= form.text_area :note, :placeholder => "ご心配なことなどあればこちらにご記入下さい" %>
     </div>
 
     <% if current_user.owner_id != nil %>
