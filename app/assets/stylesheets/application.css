@@ -348,3 +348,15 @@ ul {
 .top_cale {
   margin-left: 150px;
 }
+
+.cale_show {
+  text-align: center;
+  padding: 70px;
+  width:  400px;
+  margin: auto;
+  margin-top: 70px;
+  border: solid 1px #b3b6b9;
+  background-color: rgb(255, 255, 255);
+  padding: 30px 0px;
+
+}
