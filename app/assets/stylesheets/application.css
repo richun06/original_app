@@ -331,3 +331,20 @@ ul {
   margin-bottom: 40px;
   margin-top: 10px;
 }
+
+.calender {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.col-md-8 {
+  padding-right: 50px;
+}
+
+.cale_a {
+  margin-bottom: 20px;
+}
+
+.top_cale {
+  margin-left: 150px;
+}

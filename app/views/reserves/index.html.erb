@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="toppage">
-<h1 class="top">カレンダー</h1>
-<br>
+  <h1 class="top top_cale">カレンダー</h1>
+  <br>
 
-<div class="row">
-<div class="col-md-4">
+  <div class="row">
+  <div class="col-md-4">
 	<!-- <div class="schedule">今後の予定一覧</div>
 <table class="table">
   <thead class="thead-light">
@@ -26,27 +26,27 @@
 </table> -->
 
 
-
+<div class="calender">
 <%= form_with(model: @reserve, local: true) do |form| %>
 
   <%= form.hidden_field :user_id, :value => current_user.id %>
 
-  <div class="title">
-      <div class="form-tag"><%= Reserve.human_attribute_name(:title) %></div>
+  <div class="cale_a">
+      <%= Reserve.human_attribute_name(:title) %>
       <%= form.select :title, [["面会", "面会"], ["通院", "通院"], ["外食", "外食"], ["帰宅", "帰宅"], ["外泊", "外泊"], ["その他", "その他"]] %>
   </div>
 
-  <div class="content">
-    <div class="form-tag"><%= Reserve.human_attribute_name(:content) %></div>
+  <div class="cale_a">
+    <%= Reserve.human_attribute_name(:content) %>
     <%= form.text_area :content, :placeholder => "その他を選ばれた場合は必ず入力してください"  %>
   </div>
 
-  <div class="time">
-    <div class="form-tag"><%= Reserve.human_attribute_name(:start_time) %></div>
+  <div class="cale_a">
+    <%= Reserve.human_attribute_name(:start_time) %>
     <%= form.datetime_select :start_time %>
   </div>
 
-  <div class="submit">
+  <div class="submit_cale">
       <%= form.submit %>
   </div>
 
@@ -57,10 +57,7 @@
 -->
   <% end %>
 </div>
-
-<br>
-
-<%= link_to "戻る",user_path(current_user.id) %>
+</div>
 
 <br>
 
