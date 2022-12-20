@@ -1,6 +1,6 @@
 <div class="container">
   <% if user_signed_in? %>
-  <p class="alert alert-notice"><%= notice %></p>
+  <!-- <p class="alert alert-notice"><%#= notice %></p> -->
   <% if current_user.owner_id != nil %>
     <h4><%= current_user.name %>ログイン</h4>
   <% else %>
