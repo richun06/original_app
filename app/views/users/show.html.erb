@@ -12,19 +12,19 @@
     <h4> 電話番号： <%#= current_user.phone_number %> </h4> -->
     <br>
     <div class="menu">
-    <h3>メニュー</h3>
-    <% if current_user.owner_id != nil %>
-      <%= link_to "利用者一覧", care_users_path(@care_users), class: "btn btn--orange btn-a" %>
-    <% else %>
-      <%= link_to "ご家族登録", new_care_user_path, class: "btn btn--orange btn-a" %>
-      <%= link_to care_users_path(@care_users), class: "btn btn--orange" do %>
-        ご家族一覧<p class="txt">介護記録を見たい方もこちら</p>
+      <h3>メニュー</h3>
+      <% if current_user.owner_id != nil %>
+        <%= link_to "利用者一覧", care_users_path(@care_users), class: "btn btn--orange btn-a" %>
+      <% else %>
+        <%= link_to "ご家族登録", new_care_user_path, class: "btn btn--orange btn-a" %>
+        <%= link_to care_users_path(@care_users), class: "btn btn--orange" do %>
+          ご家族一覧<p class="txt">介護記録を見たい方もこちら</p>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= link_to "カレンダー", reserves_path, class: "btn btn--orange btn-a" %>
-    <% if current_user.admin? %>
-      <%= link_to "管理者画面", rails_admin_path, class: "btn btn--orange btn-a" %>
-    <% end %>
+      <%= link_to "カレンダー", reserves_path, class: "btn btn--orange btn-a" %>
+      <% if current_user.admin? %>
+        <%= link_to "管理者画面", rails_admin_path, class: "btn btn--orange btn-a" %>
+      <% end %>
     </div>
   <% else %>
     <h2> 現在ログインしていません </h2>

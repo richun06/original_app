@@ -1,16 +1,31 @@
+<div class="container">
 <div class="bg">
-    <h1 class="logo">Carely</h1>
-    <h3 class="logo">離れて暮らすご家族健康状態がわかる</h3>
-    <p class="logo">ご家族とスムーズに情報共有することができる</p>
-    <h3 class="logo">介護に集中できる</h3>
-    <p class="logo">現場のペーパーレス化を促進し、より良いケアを提供する</p>
-    <h3 class="logo">人為的なミスを減らす</h3>
+    <!-- <h1 class="logo">Carely</h1> -->
+    <%= image_tag asset_path("facebook_profile_image.png"), size: "400x400", class: "logo_bg" %>
+    <h2 class="logo-title">離れて暮らすご家族の毎日の健康状態がわかる</h2>
+    <div class="box">
+      <p>初めに、アカウントの新規作成をして下さい</p>
+      <p>ログインされましたら、施設へ入居されるご家族の登録を行なって下さい</p>
+      <p>ご家族の登録内容はご家族一覧から閲覧、編集することができます</p>
+      <p>介護記録はご家族一覧から、介護記録一覧に移動することができます</p>
+      <p>介護記録一覧から毎日の記録の詳細を閲覧することができます</p>
+      <p>マイページのカレンダーから予定を登録していただくと<br>入居されているご家族への面会や外食などの予定を簡単に施設に知らせることができます</p>
+    </div>
+
+    <!-- <p class="logo">ユーザはご家族の毎日の介護記録を閲覧することができ、健康状態を把握することができる</p>
+    <p class="logo">施設側が介護記録を登録し、併せてご家族へお知らせや伝達がスムーズに行える</p>
+    <p>ご家族登録をしていただくことによって、ご家族が施設に入居される際に注意してほしいこと（お食事やアレルギー、病歴など）を共有することができる</p>
+    <p>ご入居者様の情報を確認できることによって、職員の人為的なミスを減らすことができる</p>
+    <h3 class="logo">職員の業務効率化を進め、介護に集中できる環境を整える</h3>
+    <p class="logo">現場のペーパーレス化を促進し、より良いケアの提供を目指すことができる</p> -->
+    <p></p>
     <% if user_signed_in? %>
-      <%= link_to "マイページへ", user_path(current_user.id) %>
+      <%= link_to "マイページへ", user_path(current_user.id), class: "btn-mp mp--radius" %>
     <% else %>
       <%#= link_to "新規登録", new_user_registration_path, class: 'post' %>
       <%#= link_to "ログイン", new_user_session_path, class: 'post' %>
       <%= link_to 'ゲストログイン(施設側)', users_guest_sign_in_path, method: :post %>
       <%= link_to '管理者ゲストログイン', users_admin_guest_sign_in_path, method: :post %>
     <% end %>
+</div>
 </div>

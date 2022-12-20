@@ -74,7 +74,7 @@
 
     <div>
       <%= form.label :caregiver, t('activerecord.attributes.health.caregiver') %>
-      <%= form.text_field :caregiver %>
+      <%= form.text_field :caregiver, :placeholder => "入浴介助者名" %> %>
     </div>
 
     <div>
@@ -89,28 +89,28 @@
 
     <div>
       <%= form.label :daytime, t('activerecord.attributes.health.daytime') %>
-      <%= form.text_area :daytime %>
+      <%= form.text_area :daytime, :placeholder => "日中の様子" %> %>
       <%= form.label :daytime_staff, t('activerecord.attributes.health.daytime_staff') %>
-      <%= form.text_field :daytime_staff %>
+      <%= form.text_field :daytime_staff, :placeholder => "スタッフ名" %> %>
     </div>
 
     <div>
       <%= form.label :night, t('activerecord.attributes.health.night') %>
-      <%= form.text_area :night %>
+      <%= form.text_area :night, :placeholder => "夜間の様子" %> %>
       <%= form.label :night_staff, t('activerecord.attributes.health.night_staff') %>
-      <%= form.text_field :night_staff %>
+      <%= form.text_field :night_staff, :placeholder => "スタッフ名" %> %>
     </div>
 
     <div>
       <%= form.label :transfer, t('activerecord.attributes.health.transfer') %>
-      <%= form.text_area :transfer %>
+      <%= form.text_area :transfer, :placeholder => "申し送り" %> %>
     </div>
 
     <div>
       <%= form.label :contact, t('activerecord.attributes.health.contact') %>
       <%= form.text_area :contact, :placeholder => "ご家族へ共有されます" %>
       <%= form.label :contact_staff, t('activerecord.attributes.health.contact_staff') %>
-      <%= form.text_field :contact_staff %>
+      <%= form.text_field :contact_staff, :placeholder => "スタッフ名" %> %>
     </div>
 
     <%= form.submit "登録" %>

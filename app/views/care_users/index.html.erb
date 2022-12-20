@@ -12,7 +12,7 @@
   <% if current_user.owner_id != nil %>
     <%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
       <%= form.label :name, t('activerecord.attributes.care_user.name') %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, :placeholder => "例) 佐藤、さとう、さと" %> %>
       <%= form.label :sex, t('activerecord.attributes.care_user.sex') %>
       <%= form.select :sex, options_for_select(CareUser.sexes), {prompt: '選択してください'} %>
       <%= form.label :availability, t('activerecord.attributes.care_user.availability') %>

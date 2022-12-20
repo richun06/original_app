@@ -1,4 +1,4 @@
-<div class="">
+<div class="box_css">
   <%= form_with(model: @care_user, local:true) do |form| %>
     <% if @care_user.errors.any? %>
     <div id="error_explanation">
@@ -17,17 +17,17 @@
       <%= form.hidden_field :user_id, :value => current_user.id %>
     <% end %>
 
-    <div>
-      <div class="form_team">
+    <div class="care">
+      <!-- <div class="form_team"> -->
         <%= form.label :name, t('activerecord.attributes.care_user.name') %>
-      </div>
+      <!-- </div> -->
       <%= form.text_field :name, :placeholder => "例) 山田 太郎" %>
     </div>
 
-    <div>
-      <div class="form_team">
+    <div class="care">
+      <!-- <div class="form_team"> -->
         <%= form.label :birthday, t('activerecord.attributes.care_user.birthday') %>
-      </div>
+      <!-- </div> -->
       <%= raw sprintf(
         form.date_select(
           :birthday,
@@ -46,33 +46,33 @@
       <%#= form.number_field :age, :placeholder => "例) 60" %>
     </div> -->
 
-    <div>
+    <div class="care">
       <%= form.label :sex, t('activerecord.attributes.care_user.sex') %>
       <%= form.select :sex, [["男","男"],["女","女"]] %>
     </div>
 
-    <div>
+    <div class="care">
       <%= form.label :food, t('activerecord.attributes.care_user.food') %>
       <%= form.text_area :food, :placeholder => "お食事の傾向(お好みの食べ物や好まれない物など)" %>
     </div>
 
-    <div>
+    <div class="care">
       <%= form.label :allergy, t('activerecord.attributes.care_user.allergy') %>
       <%= form.text_area :allergy, :placeholder => "アレルギーをお持ちでしたら必ず記入して下さい" %>
     </div>
 
-    <div>
+    <div class="care">
       <%= form.label :sick, t('activerecord.attributes.care_user.sick') %>
       <%= form.text_area :sick, :placeholder => "持病や既往歴、飲まれているお薬について記入して下さい" %>
     </div>
 
-    <div>
+    <div class="care">
       <%= form.label :note, t('activerecord.attributes.care_user.note') %>
       <%= form.text_area :note, :placeholder => "ご心配なことなどあればこちらにご記入下さい" %>
     </div>
 
     <% if current_user.owner_id != nil %>
-      <div>
+      <div class="care">
         <%= form.label :availability, t('activerecord.attributes.care_user.availability') %>
         <%= form.label :あり %>
         <%= form.radio_button :availability, :あり %>
@@ -80,7 +80,7 @@
         <%= form.radio_button :availability, :なし %>
       </div>
 
-      <div>
+      <div class="care">
         <%= form.label :division, t('activerecord.attributes.care_user.division') %>
         <!-- <%#= form.select :division, options_for_select(CareUser.divisions), {prompt: '選択してください'} %> -->
         <%= form.select :division, [["L宿泊", "L宿泊"], ["S宿泊", "S宿泊"], ["通所", "通所"], ["訪問", "訪問"], ["その他", "その他"]], { include_blank: true, prompt: '選択してください' } %>
