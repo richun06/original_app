@@ -12,11 +12,12 @@ class CareUser < ApplicationRecord
     validates :name
     validates :birthday
     validates :sex
-    validates :food, length: { maximum: 255 }
-    validates :allergy, length: { maximum: 255 }
-    validates :sick, length: { maximum: 255 }
-    validates :note, length: { maximum: 255 }
   end
+
+  validates :food, length: { maximum: 255 }
+  validates :allergy, length: { maximum: 255 }
+  validates :sick, length: { maximum: 255 }
+  validates :note, length: { maximum: 255 }
 
   has_many :healths, dependent: :destroy
   belongs_to :user
