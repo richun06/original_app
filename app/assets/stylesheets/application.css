@@ -218,3 +218,49 @@ a.btn-c:hover {
 .logo {
   line-height: 50px;
 }
+
+.navbar {
+  background-color: rgb(254, 227, 176);
+}
+
+.footer {
+  height: 50px;
+  background-color: rgb(254, 227, 176);
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.menu {
+  text-align: center;
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #ff8834;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #fa6e0a;
+}
+
+.txt {
+  font-size: 1px;
+  margin-bottom: 0px;
+}
+
+.btn-a {
+  padding: 13px 10px;
+}
