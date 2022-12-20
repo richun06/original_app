@@ -18,6 +18,7 @@ class HealthsController < ApplicationController
     # binding.pry
     if current_user.owner_id != nil
       if @health.save
+        # binding.pry
         redirect_to healths_path(health_params), notice: "介護記録を新規作成しました"
       else
         # redirect_to new_health_path(care_user_id: care_user_id)

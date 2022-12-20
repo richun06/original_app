@@ -20,6 +20,7 @@ class ReservesController < ApplicationController
     # Reserve.create(reserve_parameter)
     @reserve = Reserve.new(reserve_parameter)
     @reserve.user_id = current_user.id
+    # binding.pry
     if @reserve.save
       redirect_to reserves_path, notice: "登録完了！"
       return

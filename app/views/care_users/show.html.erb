@@ -1,6 +1,7 @@
-<div class="">
+<div class="top_cale">
   <h1>利用者　詳細画面</h1>
 
+  <div class="cale_show">
   <p>
     <strong></strong>
     <% if @care_user.image? %>
@@ -12,58 +13,42 @@
   </p>
 
   <p>
-    <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:name) %></strong>
-    </div>
     <%= @care_user.name %>
   </p>
 
   <p>
-    <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:birthday) %></strong>
-    </div>
     <%= @care_user.birthday.strftime("%Y年 %m月 %d日") %>
   </p>
 
   <!-- <p>
-    <div class="hhh">
       <strong class="title"><%#= CareUser.human_attribute_name(:age) %></strong>
-    </div>
     <%#= @care_user.age %>歳
   </p> -->
 
   <p>
-    <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:sex) %></strong>
-    </div>
     <%= @care_user.sex %>
   </p>
 
   <p>
-    <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:food) %></strong>
-    </div>
     <%= @care_user.food %>
   </p>
 
   <p>
-    <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:allergy) %></strong>
-    </div>
     <%= @care_user.allergy %>
   </p>
 
   <p>
-    <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:sick) %></strong>
-    </div>
     <%= @care_user.sick %>
   </p>
 
   <p>
-    <div class="hhh">
       <strong class="title"><%= CareUser.human_attribute_name(:note) %></strong>
-    </div>
     <%= @care_user.note %>
   </p>
 
@@ -77,6 +62,7 @@
       <%= @care_user.division %>
     </p>
   <% end %>
+  </div>
 
   <%= link_to "戻る",care_users_path %>
   <%= link_to "編集",edit_care_user_path(@care_user.id) %>
