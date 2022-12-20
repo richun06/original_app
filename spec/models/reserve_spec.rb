@@ -17,7 +17,7 @@ RSpec.describe 'カレンダーモデル機能', type: :model do
     context 'カレンダーのタイトルと内容が全て入力された場合' do
       it '作成される' do
         reserve = Reserve.create(title: 'タイトル',content: '内容', start_time: '2022-01-01')
-        expect(reserve).not_to be_valid
+        expect(reserve).to be_valid
       end
     end
   end

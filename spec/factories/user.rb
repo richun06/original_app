@@ -6,6 +6,7 @@ FactoryBot.define do
     phone_number { "09022223333" }
     postcode { 8801234 }
     admin { "true" }
+    owner_id { 1 }
   end
 
   factory :second_user, class: User do
