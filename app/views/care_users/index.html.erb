@@ -11,13 +11,13 @@
 
   <% if current_user.owner_id != nil %>
     <%= form_with(scope: :search, url:care_users_path, local:true, method: :get) do |form| %>
-      <%= form.label :name, '名前' %>
+      <%= form.label :name, t('activerecord.attributes.care_user.name') %>
       <%= form.text_field :name %>
-      <%= form.label :sex, '性別' %>
+      <%= form.label :sex, t('activerecord.attributes.care_user.sex') %>
       <%= form.select :sex, options_for_select(CareUser.sexes), {prompt: '選択してください'} %>
-      <%= form.label :availability, '現在の利用' %>
+      <%= form.label :availability, t('activerecord.attributes.care_user.availability') %>
       <%= form.select :availability, options_for_select(CareUser.availabilities), {prompt: '選択してください'} %>
-      <%= form.label :division, '区分' %>
+      <%= form.label :division, t('activerecord.attributes.care_user.division') %>
       <%= form.select :division, [["L宿泊", "L宿泊"], ["S宿泊", "S宿泊"], ["通所", "通所"], ["訪問", "訪問"], ["その他", "その他"]], { prompt: '選択してください' } %>
       <%= form.submit "検索"%>
     <% end %>
