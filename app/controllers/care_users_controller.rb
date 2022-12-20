@@ -22,7 +22,9 @@ class CareUsersController < ApplicationController
     @care_user = CareUser.new(care_user_params)
     # binding.pry
     if @care_user.save
-      redirect_to care_users_path, notice: "利用者登録完了！"
+      # flash[:notice] = 'ご家族様を新規登録しました'
+      # redirect_to care_users_path
+      redirect_to care_users_path, notice: "ご家族様を新規登録しました"
     else
       render :new
     end
@@ -39,7 +41,7 @@ class CareUsersController < ApplicationController
   def update
     @care_user = CareUser.find(params[:id])
     if @care_user.update(care_user_params)
-      redirect_to care_users_path, notice: "編集完了！"
+      redirect_to care_users_path, notice: "ご家族様情報を編集しました"
     else
       render :edit
     end
@@ -48,7 +50,7 @@ class CareUsersController < ApplicationController
   def destroy
     @care_user = CareUser.find(params[:id])
     @care_user.destroy
-    redirect_to care_users_path, notice: "削除完了"
+    redirect_to care_users_path, notice: "ご家族様情報を削除しました"
   end
 
   private

@@ -18,7 +18,7 @@ class HealthsController < ApplicationController
     # binding.pry
     if current_user.owner_id != nil
       if @health.save
-        redirect_to healths_path(health_params), notice: "登録完了！"
+        redirect_to healths_path(health_params), notice: "介護記録を新規作成しました"
       else
         # redirect_to new_health_path(care_user_id: care_user_id)
         # redirect_to new_health_path(care_user_id: health_params[:care_user_id])
@@ -61,6 +61,7 @@ class HealthsController < ApplicationController
     if @health.update(health_params)
       # @care_user = CareUser.find(@health.care_user_id)
       # redirect_to healths_path, notice: "編集完了！"
+      flash[:notice] = '介護記録を更新しました'
       redirect_to controller: :healths, action: :index, care_user_id: @health.care_user_id
     else
       render :edit
@@ -71,6 +72,7 @@ class HealthsController < ApplicationController
     @health = Health.find(params[:id])
     @health.destroy
     # redirect_to healths_path, notice: "削除完了"
+    flash[:notice] = 'ご家族様情報を削除しました'
     redirect_to controller: :healths, action: :index, care_user_id: @health.care_user_id
   end
 
