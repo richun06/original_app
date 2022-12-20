@@ -14,109 +14,207 @@
  *= require_self
  */
 
-.container{
+/* .container{
   text-align: center;
-}
+} */
 
-.box_css{
+/* .box_css{
   width:  700px;
   margin: auto;
   margin-top: 70px;
   border: solid 1px #b3b6b9;
   background-color: rgb(255, 255, 255);
   padding: 30px 0px;
-  }
+  } */
 
-.button {
+/* .button {
   display       : inline-block;
-  border-radius : 5%;          /* 角丸       */
-  font-size     : 15pt;        /* 文字サイズ */
-  text-align    : center;      /* 文字位置   */
-  cursor        : pointer;     /* カーソル   */
-  padding       : 10px 25px;   /* 余白       */
-  background    : #4da6ff;     /* 背景色     */
-  color         : #ffffff;     /* 文字色     */
-  line-height   : 1em;         /* 1行の高さ  */
-  transition    : .3s;         /* なめらか変化 */
-  border        : 2px solid #4da6ff;    /* 枠の指定 */
+  border-radius : 5%;
+  font-size     : 15pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 10px 25px;
+  background    : #4da6ff;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  border        : 2px solid #4da6ff;
   margin-top: 10px;
-}
+} */
 
-.button:hover {
-  color         : #4da6ff;     /* 背景色     */
-  background    : #ffffff;     /* 文字色     */
-}
+/* .button:hover {
+  color         : #4da6ff;
+  background    : #ffffff;
+} */
 
-.sign_up {
+/* .sign_up {
   margin-bottom: 30px;
-}
+} */
 
-.form_group{
+/* .form_group{
   display: inline-block;
   text-align: right;
   width: 150px;
-}
+} */
 
-.form_a {
+/* .form_a {
   width: 30%;
-}
+} */
 
-.field {
+/* .field {
   padding-bottom: 10px;
-}
+} */
 
-.remember {
+/* .remember {
   width: 200px;
-}
+} */
 
-.icon {
+/* .icon {
   background-color: rgb(239, 201, 76);
   padding: 20px;
   margin: 20px;
-}
+} */
 
-.back {
+/* .back {
   text-align: left;
-}
+} */
 
-.hhh {
+/* .hhh {
   display: inline-block;
   text-align: justify;
   text-justify: inter-ideograph;
   width: 70px;
-}
+} */
 
-.form_team {
+/* .form_team {
   display: inline-block;
   text-align: right;
   width: 80px;
-}
+} */
 
 /* .form_b {
 } */
 
-ul {
+/* ul {
   list-style: none;
-}
+} */
 
-.title_a {
+/* .title_a {
   text-align: left;
-}
+} */
 
-.form_c {
+/* .form_c {
   text-align: left;
-}
+} */
 
-.ttt {
+/* .ttt {
   margin: 0px;
   width: 0px;
-}
+} */
 
-.ggg {
+/* .ggg {
   margin-left: 25em;
   margin-top: 5em;
+} */
+
+/* .calender {
+  padding-left: 10px;
+} */
+
+/* .main{
+  background-image: url("bg.jpg");
+  background-size: 100%;
+  min-height: 90vh;
+} */
+
+body { padding-top: 90px; }
+
+
+/* @import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
 }
 
-.calender {
-  padding-left: 10px;
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+a.btn-c {
+  font-size: 1.8rem;
+
+  position: relative;
+
+  padding: 2rem 4rem 2rem 2rem;
+
+  -webkit-transition: all 0.3s;
+
+  transition: all 0.3s;
+
+  color: #fff;
+  border-radius: 100vh;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#007adf),
+    to(#00ecbc)
+  );
+  background-image: -webkit-linear-gradient(left, #007adf 0%, #00ecbc 100%);
+  background-image: linear-gradient(to right, #007adf 0%, #00ecbc 100%);
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+a.btn-c:before {
+  font-family: "Font Awesome 5 Free";
+  font-size: 1.6rem;
+  line-height: 1;
+
+  position: absolute;
+  top: calc(50% - 0.8rem);
+  right: 1rem;
+
+  margin: 0;
+  padding: 0;
+
+  content: "\f30b";
+}
+
+a.btn-c:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+
+  color: #fff;
+} */
+
+.bg {
+  text-align: center;
+}
+
+.logo {
+  line-height: 50px;
 }

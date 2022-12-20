@@ -5,11 +5,13 @@
   <% else %>
   <h2> ようこそ、 <%= current_user.name %> さん！ </h2>
   <% end %>
-    <!-- <h4> メールアドレス： <%#= current_user.email %> </h4>
-    <h4> 郵便番号： <%#= current_user.postcode %> </h4>
+    <p> メールアドレス： <%= current_user.email %> </p>
+    <!-- <h4> 郵便番号： <%#= current_user.postcode %> </h4>
     <h4> 住所： <%#= current_user.prefecture_name %><%= current_user.address_city %><%= current_user.address_street %> <%= current_user.address_building %> </h4>
     <h4> 電話番号： <%#= current_user.phone_number %> </h4> -->
-    <%= link_to "プロフィール編集", edit_user_registration_path %>
+    <br>
+    <h3>メニュー</h3>
+    <%= link_to "プロフィール", edit_user_registration_path %>
     <% if current_user.owner_id != nil %>
       <%= link_to "利用者一覧", care_users_path(@care_users) %>
     <% else %>
