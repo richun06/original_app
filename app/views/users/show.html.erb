@@ -2,7 +2,6 @@
   <% if user_signed_in? %>
   <% if current_user.owner_id != nil %>
     <h4><%= current_user.name %>ログイン</h4>
-    <%= link_to "プロフィール編集", edit_user_registration_path, class: "" %>
   <% else %>
   <h2> ようこそ、 <%= current_user.name %> さん！ </h2>
   <% end %>
