@@ -15,16 +15,29 @@
     <div class="menu">
       <h3>メニュー</h3>
       <% if current_user.owner_id != nil %>
-        <%= link_to "利用者一覧", care_users_path(@care_users), class: "btn btn--orange btn-a" %>
+        <%= link_to care_users_path(@care_users), class: "btn btn--orange btn-a" do %>
+          利用者一覧<p class="txt">介護記録もこちらからアクセスできます</p>
+        <% end %>
       <% else %>
-        <%= link_to "ご家族登録", new_care_user_path, class: "btn btn--orange btn-a" %>
+        <%= link_to new_care_user_path, class: "btn btn--orange btn-a" do %>
+          ご家族登録<p class="txt">複数のご家族を登録することができます</p>
+        <% end %>
         <%= link_to care_users_path(@care_users), class: "btn btn--orange" do %>
           ご家族一覧<p class="txt">介護記録を見たい方もこちら</p>
         <% end %>
+        <%= link_to reserves_path, class: "btn btn--orange btn-a" do %>
+          カレンダー<p class="txt">面会や通院、外食などの予定を施設に知らせることができます</p>
+        <% end %>
       <% end %>
-      <%= link_to "カレンダー", reserves_path, class: "btn btn--orange btn-a" %>
+      <% if current_user.owner_id != nil %>
+        <%= link_to reserves_path, class: "btn btn--orange btn-a" do %>
+          カレンダー<p class="txt">ご家族が登録された面会などの予定を確認することができます</p>
+        <% end %>
+      <% end %>
       <% if current_user.admin? %>
-        <%= link_to "管理者画面", rails_admin_path, class: "btn btn--orange btn-a" %>
+        <%= link_to rails_admin_path, class: "btn btn--orange btn-a" do %>
+          管理者画面<p class="txt">管理画面にアクセスすることができます</p>
+        <% end %>
       <% end %>
     </div>
   <% else %>
