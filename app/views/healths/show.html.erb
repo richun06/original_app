@@ -6,7 +6,7 @@
       <tr><th><%= Health.human_attribute_name(:record_in_at) %></th><td><%= @health.record_in_at&.strftime("%Y年 %m月 %d日") %></td></tr>
       <tr><th><%= Health.human_attribute_name(:responsibility) %></th><td><%= @health.responsibility %></td></tr>
       <tr><th><%= Health.human_attribute_name(:time) %></th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
-      <tr><th><%= Health.human_attribute_name(:body_temperature) %></th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
+      <tr><th><%= Health.human_attribute_name(:body_temperature) %></th><td><%= @health.body_temperature %></td></tr>
       <tr><th><%= Health.human_attribute_name(:blood_pressure_up) %></th><td><%= @health.blood_pressure_up %>/<%= @health.blood_pressure_down %></td></tr>
       <tr><th><%= Health.human_attribute_name(:pulse) %></th><td><%= @health.pulse %>回/分</td></tr>
       <tr><th>食事量</th><td><%= Health.human_attribute_name(:breakfast) %>：<%= @health.breakfast %>　<%= Health.human_attribute_name(:lunch) %>：<%= @health.lunch %>　<%= Health.human_attribute_name(:snack) %>：<%= @health.snack %>　<%= Health.human_attribute_name(:dinner) %>：<%= @health.dinner %>　<%= Health.human_attribute_name(:before_sleep) %>：<%= @health.before_sleep %></td></tr>
