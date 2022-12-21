@@ -1,5 +1,9 @@
 <div class="top_cale">
-  <h1>利用者　詳細画面</h1>
+  <% if current_user.owner_id != nil %>
+    <h1>利用者情報　詳細画面</h1>
+  <% else %>
+    <h1>ご家族様情報　詳細画面</h1>
+  <% end %>
 
   <div class="cale_show">
   <p>
