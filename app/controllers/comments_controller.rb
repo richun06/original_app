@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        flash.now[:notice] = 'コメントが投稿されました'
         format.js { render :index }
       else
         format.html { redirect_to health_path(@health), notice: '投稿できませんでした' }
