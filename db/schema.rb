@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_24_151636) do
+ActiveRecord::Schema.define(version: 2022_12_24_154330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2022_12_24_151636) do
     t.text "sick"
     t.text "note"
     t.index ["user_id"], name: "index_care_users_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "health_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["health_id"], name: "index_comments_on_health_id"
   end
 
   create_table "healths", force: :cascade do |t|
@@ -101,6 +109,7 @@ ActiveRecord::Schema.define(version: 2022_12_24_151636) do
   end
 
   add_foreign_key "care_users", "users"
+  add_foreign_key "comments", "healths"
   add_foreign_key "healths", "care_users"
   add_foreign_key "reserves", "users"
 end
