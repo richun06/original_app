@@ -19,6 +19,7 @@
         <th><%= Health.human_attribute_name(:updated_at) %></th>
         <% if current_user.owner_id != nil %>
           <th><%= Health.human_attribute_name(:transfer) %></th>
+          <th><%= Comment.human_attribute_name(:content) %></th>
         <% else %>
           <th><%= Health.human_attribute_name(:contact) %></th>
         <% end %>
@@ -32,14 +33,24 @@
           <td><%= health.record_in_at %></td>
           <td><%= health.blood_pressure_up %>/<%= health.blood_pressure_down %></td>
           <td><%= health.updated_at.strftime("%H:%M") %></td>
+
           <% if current_user.owner_id != nil %>
             <% if health.transfer == nil %>
               <td><%= health.transfer %></td>
             <% else %>
-              <td><%= health.transfer.truncate(30) %></td>
+              <td><%= health.transfer.truncate(20) %></td>
             <% end %>
+
+            <% unless health.comments.blank? %>
+              <% health.comments.each do |comment| %>
+                <td><%= comment.content.truncate(15) %></td>
+              <% end %>
+            <% else %>
+              <td></td>
+            <% end %>
+
           <% else %>
-            <% if health.transfer == nil %>
+            <% if health.contact == nil %>
               <td><%= health.contact %></td>
             <% else %>
               <td><%= health.contact.truncate(30) %></td>
