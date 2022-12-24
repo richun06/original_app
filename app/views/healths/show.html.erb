@@ -24,6 +24,12 @@
       <tr><th><%= Health.human_attribute_name(:contact) %></th><td><%= @health.contact %></td></tr>
     </table>
 
+    <p>コメント一覧</p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, health: @health } %>
+    </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, health: @health } %>
+
     <%= link_to "戻る",healths_path(care_user_id: @health.care_user.id) %>
     <% if current_user.owner_id != nil %>
       <%= link_to "編集",edit_health_path(@health.id) %>
