@@ -47,8 +47,6 @@ class HealthsController < ApplicationController
 
   def show
     @health = Health.find(params[:id])
-    # @comments = @health.comments
-    # @comment = @health.comments.build
   end
 
   def edit
