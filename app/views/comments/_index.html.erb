@@ -4,7 +4,7 @@
     <% if comment.id.present? %>
       <li>
         <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
-        <%= comment.content %>
+        <p><%= comment.user.name %>：<%= comment.content %>
         <% if current_user.owner_id == nil %>
           <%= link_to "編集", edit_health_comment_path(health, comment), remote: true %>
           <%= link_to "削除", health_comment_path(comment.health_id, comment.id), method: :delete, remote: true,

@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @health.comments.build(comment_params)
+    @comment.user_id = current_user.id
 
     respond_to do |format|
       if @comment.save
@@ -47,7 +48,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :user_id)
   end
 
   def set_health
