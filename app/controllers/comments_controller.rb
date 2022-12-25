@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @health.comments.build(comment_params)
+    @comment.user_id = current_user.id
 
     respond_to do |format|
       if @comment.save
@@ -17,8 +18,12 @@ class CommentsController < ApplicationController
   def edit
     @comment = @health.comments.find(params[:id])
     respond_to do |format|
-      flash.now[:notice] = 'コメントの編集中'
-      format.js { render :edit }
+      if @comment.user == current_user
+        flash.now[:notice] = 'コメントの編集中'
+        format.js { render :edit }
+      else
+        format.js { render :index }
+      end
     end
   end
 
@@ -37,9 +42,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    respond_to do |format|
-      flash.now[:notice] = 'コメントが削除されました'
+    if @comment.user == current_user
+      @comment.destroy
+      respond_to do |format|
+        flash.now[:notice] = 'コメントが削除されました'
+        format.js { render :index }
+      end
+    else
       format.js { render :index }
     end
   end
@@ -47,7 +56,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :user_id)
   end
 
   def set_health
