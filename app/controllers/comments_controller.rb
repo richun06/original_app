@@ -42,9 +42,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    respond_to do |format|
-      flash.now[:notice] = 'コメントが削除されました'
+    if @comment.user == current_user
+      @comment.destroy
+      respond_to do |format|
+        flash.now[:notice] = 'コメントが削除されました'
+        format.js { render :index }
+      end
+    else
       format.js { render :index }
     end
   end
