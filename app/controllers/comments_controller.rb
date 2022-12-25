@@ -18,8 +18,12 @@ class CommentsController < ApplicationController
   def edit
     @comment = @health.comments.find(params[:id])
     respond_to do |format|
-      flash.now[:notice] = 'コメントの編集中'
-      format.js { render :edit }
+      if @comment.user == current_user
+        flash.now[:notice] = 'コメントの編集中'
+        format.js { render :edit }
+      else
+        format.js { render :index }
+      end
     end
   end
 
