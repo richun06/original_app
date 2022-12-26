@@ -1,0 +1,16 @@
+<h3>責任者一覧</h3>
+<%= link_to "責任者新規作成", new_manager_path %>
+<table>
+  <thead>
+    <tr>
+      <th><%= Manager.human_attribute_name(:name) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @managers.each do |manager| %>
+      <tr>
+        <td><%= manager.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
