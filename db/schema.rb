@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_25_170341) do
+ActiveRecord::Schema.define(version: 2022_12_26_104330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2022_12_25_170341) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_managers_on_user_id"
   end
 
   create_table "reserves", force: :cascade do |t|
@@ -129,6 +131,7 @@ ActiveRecord::Schema.define(version: 2022_12_25_170341) do
   add_foreign_key "comments", "healths"
   add_foreign_key "comments", "users"
   add_foreign_key "healths", "care_users"
+  add_foreign_key "managers", "users"
   add_foreign_key "reserves", "users"
   add_foreign_key "supervises", "healths"
   add_foreign_key "supervises", "managers"
