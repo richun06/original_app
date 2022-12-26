@@ -43,8 +43,12 @@ class ManagersController < ApplicationController
 
   def destroy
     @manager = Manager.find(params[:id])
-    @manager.destroy
-    redirect_to managers_path, notice: "管理者を削除しました"
+    if @manager.user_id == current_user.id
+      @manager.destroy
+      redirect_to managers_path, notice: "管理者を削除しました"
+    else
+      redirect_to managers_path
+    end
   end
 
   private
