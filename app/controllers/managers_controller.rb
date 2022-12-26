@@ -18,7 +18,11 @@ class ManagersController < ApplicationController
   end
 
   def index
-    @managers = Manager.all
+    if current_user.owner_id != nil
+      @managers = Manager.all
+    else
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def edit
