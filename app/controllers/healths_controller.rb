@@ -4,10 +4,9 @@ class HealthsController < ApplicationController
   def new
     # byebug
     @health = Health.new
-    # binding.pry
     @care_user = CareUser.find(params[:care_user_id])
     # @care_user = params[:care_user_id]
-    # byebug
+    # binding.pry
   end
 
   def create
@@ -15,7 +14,6 @@ class HealthsController < ApplicationController
     # @health = @care_user.health.build(params[:id])
     # @health.care_user_id = @care_user.id
     # @care_user = @health.build_care_user(care_user_params)
-    # binding.pry
     if current_user.owner_id != nil
       if @health.save
         # binding.pry
@@ -80,7 +78,7 @@ class HealthsController < ApplicationController
   private
 
   def health_params
-    params.require(:health).permit(:record_in_at, :time, :blood_pressure_up, :blood_pressure_down, :pulse, :body_temperature, :breakfast, :lunch, :snack, :dinner, :before_sleep, :morning_medicine, :daytime_medicine, :snack_medicine, :evening_medicine, :sleep_medicine, :bath_time, :bath_division, :caregiver, :height, :body_weight, :daytime, :daytime_staff, :night, :night_staff, :contact, :contact_staff, :responsibility, :transfer, :care_user_id)
+    params.require(:health).permit(:record_in_at, :time, :blood_pressure_up, :blood_pressure_down, :pulse, :body_temperature, :breakfast, :lunch, :snack, :dinner, :before_sleep, :morning_medicine, :daytime_medicine, :snack_medicine, :evening_medicine, :sleep_medicine, :bath_time, :bath_division, :caregiver, :height, :body_weight, :daytime, :daytime_staff, :night, :night_staff, :contact, :contact_staff, :responsibility, :transfer, :care_user_id, { manager_ids: [] })
     # .merge(breakfast: params[:health][:breakfast].to_i, lunch: params[:health][:lunch].to_i, snack: params[:health][:snack].to_i, dinner: params[:health][:dinner].to_i, before_sleep: params[:health][:before_sleep].to_i, morning_medicine: params[:health][:morning_medicine].to_i, daytime_medicine: params[:health][:daytime_medicine].to_i, snack_medicine: params[:health][:snack_medicine].to_i, evening_medicine: params[:health][:evening_medicine].to_i, sleep_medicine: params[:health][:sleep_medicine].to_i, bath_division: params[:health][:bath_division].to_i)
   end
 
