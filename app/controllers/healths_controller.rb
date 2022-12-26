@@ -7,6 +7,7 @@ class HealthsController < ApplicationController
     @care_user = CareUser.find(params[:care_user_id])
     # @care_user = params[:care_user_id]
     # binding.pry
+    @managers = Manager.where(user_id: current_user.id)
   end
 
   def create
