@@ -24,10 +24,16 @@ class ManagersController < ApplicationController
   def update
     @manager = Manager.find(params[:id])
     if @manager.update(manager_params)
-      redirect_to managers_path, notice: "編集しました"
+      redirect_to managers_path, notice: "管理者名を編集しました"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @manager = Manager.find(params[:id])
+    @manager.destroy
+    redirect_to managers_path, notice: "管理者を削除しました"
   end
 
   private

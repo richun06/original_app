@@ -11,6 +11,7 @@
       <tr>
         <td><%= manager.name %></td>
         <td><%= link_to "編集",edit_manager_path(manager.id) %></td>
+        <td><%= link_to "削除",manager_path(manager.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
       </tr>
     <% end %>
   </tbody>
