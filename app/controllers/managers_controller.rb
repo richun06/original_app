@@ -17,6 +17,19 @@ class ManagersController < ApplicationController
     @managers = Manager.all
   end
 
+  def edit
+    @manager = Manager.find(params[:id])
+  end
+
+  def update
+    @manager = Manager.find(params[:id])
+    if @manager.update(manager_params)
+      redirect_to managers_path, notice: "編集しました"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def manager_params

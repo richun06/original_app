@@ -10,6 +10,7 @@
     <% @managers.each do |manager| %>
       <tr>
         <td><%= manager.name %></td>
+        <td><%= link_to "編集",edit_manager_path(manager.id) %></td>
       </tr>
     <% end %>
   </tbody>
