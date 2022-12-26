@@ -109,6 +109,7 @@ ja:
       health: 'ヘルス情報'
       reserve: 'カレンダー'
       comment: 'コメント'
+      manager: '責任者'
     attributes:
       user:
         name: '名前'
@@ -174,6 +175,8 @@ ja:
         updated_at: '更新日時'
       comment:
         content: "コメント"
+      manager:
+        name: "責任者"
     errors:
       models:
         care_user:
