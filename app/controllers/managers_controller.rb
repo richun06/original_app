@@ -19,11 +19,8 @@ class ManagersController < ApplicationController
   end
 
   def index
-    if current_user.owner_id != nil
-      @managers = Manager.all
-    else
-      redirect_to user_path(current_user.id)
-    end
+    @managers = Manager.where(user_id: current_user.id)
+    # @managers = Manager.all
   end
 
   def edit
