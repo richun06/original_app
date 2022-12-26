@@ -5,11 +5,15 @@ class ManagersController < ApplicationController
   end
 
   def create
-    @manager = Manager.new(manager_params)
-    if @manager.save
-      redirect_to managers_path
+    if current_user.owner_id != nil
+      @manager = Manager.new(manager_params)
+      if @manager.save
+        redirect_to managers_path
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to user_path(current_user.id)
     end
   end
 
