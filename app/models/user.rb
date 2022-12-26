@@ -53,6 +53,7 @@ class User < ApplicationRecord
   has_many :care_users
   has_many :reserves
   has_many :comments
+  has_many :managers
 
   VALID_PHONE_NUMBER_REGEX = /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/
   validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }

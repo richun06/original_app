@@ -1,0 +1,12 @@
+<h3>責任者登録</h3>
+<%= form_with(model: @manager, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name, t('activerecord.attributes.manager.name') %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to "戻る", managers_path %>

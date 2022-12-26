@@ -14,9 +14,14 @@
   <%= form.hidden_field :care_user_id, :value => @care_user.id %>
 
   <div class="ggg">
+    <!-- 責任者名プルダウンリスト(配列として渡らず実装できず) -->
+    <!-- <div>
+      <label for="manager_name"><%#= Manager.human_attribute_name(:name) %></label>
+        <%#= form.collection_select(:manager_ids, Manager.all, :id, :name, { prompt: '選択してください' }) %>
+    </div> -->
+
     <div>
-      <%= form.label :responsibility, t('activerecord.attributes.health.responsibility') %>
-      <%= form.text_field :responsibility, :placeholder => "入力必須" %>
+      <%= form.collection_check_boxes(:manager_ids, @managers, :id, :name) %>
     </div>
 
     <div>

@@ -4,7 +4,12 @@
   <div class="form_c">
     <table class="table">
       <tr><th><%= Health.human_attribute_name(:record_in_at) %></th><td><%= @health.record_in_at&.strftime("%Y年 %m月 %d日") %></td></tr>
-      <tr><th><%= Health.human_attribute_name(:responsibility) %></th><td><%= @health.responsibility %></td></tr>
+      <tr>
+        <th><%= Manager.human_attribute_name(:name) %></th>
+          <% @health.managers.each do |manager| %>
+            <td><%= manager.name %></td>
+          <% end %>
+      </tr>
       <tr><th><%= Health.human_attribute_name(:time) %></th><td><%= @health.time&.strftime("%H:%M") %></td></tr>
       <tr><th><%= Health.human_attribute_name(:body_temperature) %></th><td><%= @health.body_temperature %></td></tr>
       <tr><th><%= Health.human_attribute_name(:blood_pressure_up) %></th><td><%= @health.blood_pressure_up %>/<%= @health.blood_pressure_down %></td></tr>
