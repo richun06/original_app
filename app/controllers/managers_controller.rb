@@ -25,6 +25,11 @@ class ManagersController < ApplicationController
 
   def edit
     @manager = Manager.find(params[:id])
+    if @manager.user_id == current_user.id
+      render "edit"
+    else
+      redirect_to managers_path
+    end
   end
 
   def update
