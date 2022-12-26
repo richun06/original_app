@@ -7,6 +7,7 @@ class ManagersController < ApplicationController
   def create
     if current_user.owner_id != nil
       @manager = Manager.new(manager_params)
+      @manager.user_id = current_user.id
       if @manager.save
         redirect_to managers_path
       else
@@ -47,6 +48,6 @@ class ManagersController < ApplicationController
   private
 
   def manager_params
-    params.require(:manager).permit(:name)
+    params.require(:manager).permit(:name, :user_id)
   end
 end
