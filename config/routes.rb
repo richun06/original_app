@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :reserves
+  resources :managers
 end
