@@ -33,6 +33,9 @@
         <%= link_to reserves_path, class: "btn btn--orange btn-a" do %>
           カレンダー<p class="txt">ご家族が登録された面会などの予定を確認することができます</p>
         <% end %>
+        <%= link_to new_manager_path, class: "btn btn--orange btn-a" do %>
+          責任者登録<p class="txt">責任者一覧もこちらからアクセスできます</p>
+        <% end %>
       <% end %>
       <% if current_user.admin? %>
         <%= link_to rails_admin_path, class: "btn btn--orange btn-a" do %>
