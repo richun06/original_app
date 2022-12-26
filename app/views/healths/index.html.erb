@@ -23,7 +23,7 @@
         <% else %>
           <th><%= Health.human_attribute_name(:contact) %></th>
         <% end %>
-        <th><%= Health.human_attribute_name(:responsibility) %></th>
+        <th><%= Manager.human_attribute_name(:name) %></th>
       </tr>
     </thead>
 
@@ -56,7 +56,11 @@
               <td><%= health.contact.truncate(30) %></td>
             <% end %>
           <% end %>
-          <td><%= health.responsibility %></td>
+
+          <% health.managers.each do |manager| %>
+            <td><%= manager.name %></td>
+          <% end %>
+
           <td><%= link_to "詳細",health_path(health.id) %></td>
           <td>
             <% if current_user.owner_id != nil %>
